@@ -1,0 +1,198 @@
+<div ng-controller="dishesBranch as vm" >
+    <!--展开模块：需要修改两个ID ‘heading-*’ ‘collapse-*’ *为添加类别名-->
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default caiPin" ng-repeat="classItem in vm.classList">
+            <div class="panel-heading" role="tab" id="heading-{{classItem.id}}">
+                <a class="collapsed pull-right" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse-{{classItem.id}}" aria-expanded="false" aria-controls="collapse-{{classItem.id}}">
+                    <span ng-show="classItem.id!=vm.classId" ng-click="vm.searchDishes(classItem.id)">展开</span>
+                    <span ng-show="classItem.id==vm.classId" ng-click="vm.classId=null">收起</span>
+                </a>
+                <form>
+                    <div class="form-group">
+                        <label>
+                            {{classItem.name}}<!--<input id="{{classItem.id}}" type="checkbox" />必选-->
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control"  type="text" placeholder="点击添加详细描述" />
+                    </div>
+                </form>
+            </div>
+            <div id="collapse-{{classItem.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{classItem.id}}">
+                <div class="panel-body">
+                    <!--<div class="checkbox">
+                        <label for="submited">
+                            <input id="submited" type="checkbox" /> 只查看已上架菜品
+                        </label>
+                        <label for="sortByConsume">
+                            <input id="sortByConsume" type="checkbox" /> 消耗数量降序查看
+                        </label>
+                    </div>-->
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>菜品名称</th>
+                            <th>菜品ID</th>
+                            <th>菜品价格/元</th>
+                            <th>活动价格/元</th>
+                            <th>单位</th>
+                            <th>菜品图片</th>
+                            <th>菜品描述</th>
+                            <th>库存</th>
+                            <th>已销售</th>
+                            <!--<th>菜品状态</th>-->
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="dishItem in vm.dishesList">
+                            <td>
+                                <span ng-show="!dishItem.isSet">{{dishItem.name}}</span>
+                                <input class="form-control" type="text" value="{{dishItem.name}}" ng-model="dishItem.name" ng-show="dishItem.isSet"/>
+                            </td>
+                            <td>{{dishItem.id}}</td>
+                            <td>
+                                <span>{{dishItem.headPrice}}</span>
+                                <!--<input class="form-control" type="text" value="{{dishItem.price}}" ng-model="dishItem.price" ng-show="dishItem.isSet"/>-->
+                            </td>
+                            <td>
+                                <span ng-show="!dishItem.isSet">{{dishItem.price}}</span>
+                                <input class="form-control" type="text" value="{{dishItem.price}}" ng-model="dishItem.price" ng-show="dishItem.isSet"/><!--活动价格-->
+                            </td>
+                            <td>
+                                {{dishItem.unit}}
+                                <!--<input class="form-control" type="text" value="{{dishItem.unit}}" ng-model="dishItem.unit" ng-show="dishItem.isSet"/>-->
+                            </td><!--单位-->
+                            <td style="min-width:102px;">
+                                <button class="btn btn-default btn-xs" ng-click="vm.getDishImg(dishItem)" ng-show="!dishItem.isSet" ng-if="dishItem.picUrl" data-toggle="modal" data-target="#imgModal">预览</button>
+                                <label class="btn btn-default btn-xs" ng-show="dishItem.isSet" for="uploadImg">上传</label>
+                                <input id="uploadImg" type="file" onchange="angular.element(this).scope().uploadImg(this.files)" style="display:none;"/>
+                                <!--<button class="btn btn-default btn-xs" ng-if="dishItem.picUrl">删除</button>-->
+
+                            </td><!--图片-->
+                            <td>
+                                <span ng-show="!dishItem.isSet">{{dishItem.description}}</span>
+                                <input class="form-control" type="text" value="{{dishItem.description}}" ng-model="dishItem.description" ng-show="dishItem.isSet"/>
+                            </td>
+                            <td>
+                                <span ng-show="!dishItem.isSet">{{dishItem.stock||0}}</span>
+                                <input class="form-control" type="text" value="{{dishItem.stock}}" ng-model="dishItem.stock" ng-show="dishItem.isSet"/>
+                            </td>
+                            <td>{{dishItem.soldNumber||0}}</td>
+                            <!--<td>{{dishItem.status}}</td>-->
+                            <td style="min-width:120px;">
+                                <button class="btn btn-default btn-xs" ng-click="vm.setting(dishItem)" ng-show="!dishItem.isSet">修改</button>
+                                <button class="btn btn-default btn-xs" ng-click="vm.setDish(classItem.id,dishItem)" ng-show="dishItem.isSet">保存修改</button>
+                                <!--<button class="btn btn-default btn-xs">下架</button>-->
+                                <button class="btn btn-default btn-xs" ng-click="vm.deleteDish(dishItem.id,classItem.id)">删除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>　</td>
+                            <td>　</td>
+                            <td>　</td>
+                            <td>　</td>
+                            <td>　</td>
+                            <td>　</td>
+                            <td>　</td>
+                            <td>　</td>
+                            <td>　</td>
+                            <!--<td>　</td>-->
+                            <td>　</td>
+                        </tr>
+                        <tr>
+                                <td>
+                                    <input class="form-control" type="text" ng-model="vm.dishData.name" ng-show="vm.dishData.isAdd"/>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input class="form-control" type="text"  ng-model="vm.dishData.headPrice" ng-show="vm.dishData.isAdd"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text"  ng-model="vm.dishData.price" ng-show="vm.dishData.isAdd"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text"  ng-model="vm.dishData.unit" ng-show="vm.dishData.isAdd"/>
+                                </td>
+                                <td>
+                                    <label class="btn btn-default btn-xs" ng-show="vm.dishData.isAdd" for="addImg">上传</label>
+                                    <input id="addImg" type="file" onchange="angular.element(this).scope().uploadImg(this.files)" style="display:none;"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" value="{{vm.dishData.description}}" ng-model="vm.dishData.description" ng-show="vm.dishData.isAdd"/>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" value="{{vm.dishData.stock}}" ng-model="vm.dishData.stock" ng-show="vm.dishData.isAdd"/>
+                                </td>
+                                <td></td>
+                                <!--<td></td>-->
+                                <td>
+                                    <button class="btn btn-default btn-sm" ng-click="vm.dishData.isAdd=true" ng-show="!vm.dishData.isAdd">添加菜品</button>
+                                    <button class="btn btn-default btn-sm" ng-click="vm.addDish(classItem.id,vm.dishData)" ng-show="vm.dishData.isAdd">保存</button>
+                                    <!--价格必须填！-->
+                                    <button class="btn btn-default btn-sm" ng-click="vm.getHeadDish(classItem.headDishesCategoryId)" data-toggle="modal" data-target="#selectDishes">总店中筛选</button>
+                                    <!--<button class="btn btn-default btn-sm" ng-click="vm.dishData.isSelect=false" ng-show="vm.dishData.isSelect">保存</button>-->
+                                </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--<div class="btn-group pull-right">
+                        <button  class="btn btn-default" type="button">批量上架</button>
+                        <button  class="btn btn-default" type="button">批量下架</button>
+                    </div>-->
+                    <div class="pagination-container">
+                        <div class="pagination dishesPag{{classItem.id}}"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="vm.classList.length==0" class="alert alert-danger" role="alert">
+        <a ui-sref="^.dishesClass">*请先从总店导入分类*</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="imgModalLabel">图片预览</h4>
+                </div>
+                <div class="modal-body" >
+                    <img ng-src="{{vm.dishImg}}" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="selectDishes" tabindex="-1" role="dialog" aria-labelledby="selectDishes">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="selectDishesLabel">勾选菜品</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="checkbox" ng-repeat="headItem in vm.headDishesList">
+                            <label>
+                                <input type="checkbox" ng-model="headItem.isSelect" />{{headItem.name}}
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="vm.selectDish(vm.headDishesList)" data-dismiss="modal">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

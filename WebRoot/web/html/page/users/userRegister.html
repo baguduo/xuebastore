@@ -1,0 +1,79 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" type="text/css" href="../../../../libs/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../libs/bootstrap/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/common/global.css" />
+</head>
+<div class="newFlight" >
+    <form class="form-horizontal" name="newUser" novalidate>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>　　　　用户注册</h1>
+        <br>
+        <div class="form-group">
+            <label for="username" class="col-md-3 control-label">用户名</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="username" name="username" ng-model="vm.userData.username" style="height:45px;width:449px"placeholder="不得为空" required>
+                <!--<span class="form-error" ng-show="newFlight.fltNo.$error.required&&newFlight.fltNo.$dirty">不得为空</span>-->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-md-3 control-label">密码</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="password" name="password" ng-model="vm.userData.password"style="height:45px;width:449px" placeholder="不得为空" required>
+                <!--<span class="form-error" ng-show="newFlight.date.$error.required&&newFlight.date.$dirty">不得为空</span>-->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="col-md-3 control-label">联系电话</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="phone" name="phone" ng-model="vm.userData.phone"style="height:45px;width:449px" placeholder="不得为空" required>
+                <!--<span class="form-error" ng-show="newFlight.airline.$error.required&&newFlight.airline.$dirty">不得为空</span>-->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="col-md-3 control-label">住址</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="address" name="address" ng-model="vm.userData.address"style="height:45px;width:449px" placeholder="不得为空" required>
+                <!--<span class="form-error" ng-show="newFlight.takeoffTime.$error.required&&newFlight.takeoffTime.$dirty">不得为空</span>-->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="remark" class="col-md-3 control-label">飞友会</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="remark" name="remark" ng-model="vm.userData.remark"style="height:45px;width:449px" placeholder="不得为空" required>
+                <!--<span class="form-error" ng-show="newFlight.landingTime.$error.required&&newFlight.landingTime.$dirty">不得为空</span>-->
+            </div>
+        </div>
+        <!--<div class="form-group">-->
+        <!--<label class="col-md-3 control-label">门店图片</label>-->
+        <!--<div class="col-md-9 headImg">-->
+        <!--<img src="../img/headImg.png" ng-src="{{vm.storeData.imgUrl}}" />-->
+        <!--<input class="btn btn-sm" type="file" value="上传图片" onchange="angular.element(this).scope().uploadImg(this.files)"/>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="button-group">
+            <button type="button" class="btn btn-primary submit" style="margin-left: 510px">提交</button>
+            <button onclick="{location.href='/web/html/page/userLogin.html'}" class="btn btn-default"  type="button">返回</button>
+        </div>
+    </form>
+
+    <!-- common script -->
+    <script type="text/javascript" src="../../../../libs/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../../../../libs/angular/angular-ui-router.min.js"></script>
+    <script src="../../../../libs/jquery/jquery-1.11.3.min.js"></script>
+    <script src="../../../../libs/jquery/jquery.pagination.js"></script>
+
+    <script src="../../../../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../../libs/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../../../js/common/global.js"></script>
+    <script type="text/javascript" src="../../../js/common/router.js"></script>
+
+    <script type="text/javascript" src="../../../js/page/users/userRegister.js"></script>
+</div>

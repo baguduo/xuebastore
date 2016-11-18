@@ -1,0 +1,101 @@
+
+   <div class="newFlight" ng-controller="addFlight as vm">
+        <form class="form-horizontal" name="newStore" novalidate>
+            <!--<h4>新建航班信息</h4>-->
+
+            <div class="form-group">
+                <label for="fltNo" class="col-md-3 control-label">航班号</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="fltNo" name="fltNo" ng-model="vm.flightData.fltNo"style="width:450px" placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.fltNo.$error.required&&newFlight.fltNo.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="date" class="col-md-3 control-label">日期</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="date" name="date" ng-model="vm.flightData.date" style="width:450px" placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.date.$error.required&&newFlight.date.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="airline" class="col-md-3 control-label">航空公司</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="airline" name="airline" ng-model="vm.flightData.airline" style="width:450px" placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.airline.$error.required&&newFlight.airline.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="takeoffTime" class="col-md-3 control-label">起飞时间</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="takeoffTime" name="takeoffTime" ng-model="vm.flightData.takeoffTime"style="width:450px" placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.takeoffTime.$error.required&&newFlight.takeoffTime.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="landingTime" class="col-md-3 control-label">降落时间</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="landingTime" name="landingTime" ng-model="vm.flightData.landingTime"style="width:450px" placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.landingTime.$error.required&&newFlight.landingTime.$dirty">不得为空</span>
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label class="col-md-3 control-label">门店图片</label>-->
+                <!--<div class="col-md-9 headImg">-->
+                    <!--<img src="../img/headImg.png" ng-src="{{vm.storeData.imgUrl}}" />-->
+                    <!--<input class="btn btn-sm" type="file" value="上传图片" onchange="angular.element(this).scope().uploadImg(this.files)"/>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label for="type" class="col-md-3 control-label">机型</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="type" name="type" ng-model="vm.flightData.type"style="width:450px" placeholder="不得为空" required>
+                    <!--<span class="glyphicon glyphicon-map-marker map-address" ng-click="vm.map()" data-toggle="modal" data-target="#myModal"></span>-->
+                    <span class="form-error" ng-show="newFlight.type.$error.required&&newFlight.type.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="planeId" class="col-md-3 control-label">飞机编号</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="planeId" name="planeId" ng-model="vm.flightData.planeId"style="width:450px" placeholder="不得为空" required>
+                    <!--<span class="glyphicon glyphicon-map-marker map-address" ng-click="vm.map()" data-toggle="modal" data-target="#myModal"></span>-->
+                    <span class="form-error" ng-show="newFlight.planeId.$error.required&&newFlight.planeId.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="takeoff" class="col-md-3 control-label">起飞</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="takeoff" name="takeoff" ng-model="vm.flightData.takeoff" style="width:450px"placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.takeoff.$error.required&&newFlight.takeoff.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="landing" class="col-md-3 control-label">降落</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="landing" name="landing" ng-model="vm.flightData.landing"style="width:450px" placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.landing.$error.required&&newFlight.landing.$dirty">不得为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="punctuality" class="col-md-3 control-label">准点率</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="punctuality" name="punctuality" ng-model="vm.flightData.punctuality"style="width:450px" placeholder="不得为空" required>
+                    <span class="form-error" ng-show="newFlight.punctuality.$error.required&&newFlight.punctuality.$dirty">不得为空</span>
+                </div>
+            </div>
+            <!--<div class="form-group">
+                <label  class="col-md-3 control-label">门店状态</label>
+                <div class="col-md-9">
+                    <select class="form-control status" ng-model="vm.storeData.status" required>
+                        <option value="0">正在营业</option>
+                        <option value="1">暂停营业</option>
+                        <option value="2">停止营业</option>
+                    </select>
+                </div>
+            </div>-->
+            <div class="button-group">
+                <button ng-click="vm.addFlight(vm.flightData,newFlight.$invalid)" class="btn btn-default btn-danger"  type="button"style="margin-left: 600px">保存</button>
+                <button ui-sref="flights" class="btn btn-default"  type="button">返回</button>
+            </div>
+
+        </form>
+   </div>

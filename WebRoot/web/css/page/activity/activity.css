@@ -1,0 +1,47 @@
+.activity {
+	background-color: #fff;
+	padding: 20px !important;
+}
+
+.activity a {
+	color: #000;
+	text-decoration: none;
+}
+
+.activity a:hover {
+	color: #666;
+}
+.activity .form-group {
+	margin-bottom: 0 !important; 
+}
+.activity .checkbox {
+	margin-left: 20px !important;
+}
+
+.activity tr.disabled-true {
+	color: #AFAEAE;
+}
+.activity .modal-dialog {
+	width: 400px !important;
+	top : 100px !important;
+}
+ .activity .modal-dialog input {
+	margin-right: 5px;
+}
+.activity .inner {
+	width: 100px;
+	border: 0;
+	border-bottom: 1px solid #000;
+	margin-right: 0;
+	padding-left: 3px;
+}
+.activity .inner:focus,
+.activity .inner:active {
+	border : 0;
+	border-bottom: 1px solid #000;
+	outline: 0;
+}
+
+.input-group.input-append.date.form_datetime {
+    max-width: 200px;
+}

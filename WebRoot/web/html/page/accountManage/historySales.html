@@ -1,0 +1,173 @@
+<div class="accountManage"  ng-controller="historySales">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<!-- <div class="col-md-8">
+				<form role="form">
+					<label class="col-sm-2 control-label">查询类型</label>
+					<label class="margin">
+						<input type="radio" name="radio" ng-model="order" ng-checked="store" ng-click="changeOrder()" />按订单来源分类
+					</label>
+					<label>
+						<input type="radio" name="radio" ng-model="store" ng-checked="order" ng-click="changeStore()" />按门店分类
+					</label>
+				</form>
+			</div> -->
+
+			<div class="searchStore col-md-12">
+				<div class="col-md-8 height-reset">
+					<form role="form col-md-4">
+						<label class="col-md-2">选择门店</label>
+						<select class="form-control" ng-model="select" ng-change="searchByStoreHi()" ng-options="store.storeId as store.storeName for store in orderListHiTemp[0]">
+							<option  value="">所有门店</option>
+						</select>
+					</form>
+				</div>
+			</div>
+			
+			<div class="searchStore col-md-12">
+				<div class="form-group col-md-4">
+					<label class="col-md-4 control-label">选择时间段</label>
+					<div class="input-group input-append date form_datetime">
+						<input type="text" class="form-control" ng-model="startTime">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-th"></i>
+						</span>
+					</div>
+				</div>
+				<div class="form-group col-md-3">
+					<label class="col-md-2 control-label">至&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<div class="input-group input-append date form_datetime">
+						<input type="text" class="form-control" ng-model="endTime">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-th"></i>
+						</span>
+					</div>
+				</div>
+				<div class="form-group col-md-3">
+					<label class="sr-only"></label>
+					<button type="button" class="btn btn-default" ng-click="searchByTime(startTime,endTime)">查询</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div ng-hide="partStore">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="resetWidth">编号</th>
+					<th>门店名称</th>
+					<th>订单来源</th>
+					<th>成交量/笔</th>
+					<th>成交总额/元</th>
+					<!-- <th>总计/元</th> -->
+					<th>备注</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="list in orderListHi[0]">
+					<td>{{$index + 1}}</td>
+					<td>{{list.storeName}}</td>
+					<td>{{list.orderSource | sourceFilt}}</td>
+					<td>{{list.orderAmount}}</td>
+					<td>{{list.moneyAmount}}</td>
+					<td>{{list.remark}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div ng-show="partStore">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>订单来源</th>
+						<th>单号</th>
+						<th>总金额</th>
+						<th>折扣</th>
+						<th>实付</th>
+						<th>支付方式</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="list in orderListPart">
+						<td>{{list.id}}</td>
+						<td>{{list.source | sourceFilt}}</td>
+						<td ng-click="getAboutOrder(list)" class="aboutOrder" data-toggle="modal" data-target="#aboutOrder">{{list.orderNum}}</td>
+						<td>{{list.totalAmount}}</td>
+						<td>{{list.discount}}</td>
+						<td>{{list.finalAmount}}</td>
+						<td>{{list.payWay | pay}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="pagination-container">
+				<div class="pagination"></div>
+			</div>
+			<!-- Modal -->
+			<div class="resetModal modal fade" id="aboutOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			    <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			                 <h4 class="modal-title" id="myModalLabel">订单明细</h4>
+			            </div>
+			            <div class="modal-body orderDetail">
+			              <div>
+			              	<span>订单来源 : </span>
+			              	{{todayPartDetail.source | sourceFilt}}
+			              </div>
+			              <div>
+			              	<span>单号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </span>
+			              	{{todayPartDetail.oderNum}}
+			              </div>
+			              <div>
+			              	<span>支付方式 : </span>
+			              	{{todayPartDetail.payWay | pay}}
+			              </div>
+			              <table class="table table-bordered">
+			            	<thead>
+			            		<th>序号</th>
+			            		<th>菜品</th>
+			            		<th>单价</th>
+			            		<th>数量</th>
+			            		<th>总额</th>
+			            	</thead>
+			            	<tbody>
+			            		<tr ng-repeat="dishes in todayPartDetail.repastMenuList[0].repastDishes">
+			            			<td>{{$index + 1}}</td>
+			            			<td>{{dishes.name}}</td>
+			            			<td>{{dishes.dishesPrice}}</td>
+			            			<td>{{dishes.dishesNum}}</td>
+			            			<td>{{dishes.totalAmount}}</td>
+			            		</tr>
+			            	</tbody>
+			            </table>
+			            <div>
+			           	  <div>
+			              	<span>总金额 : </span>
+			              	{{todayPartDetail.totalAmount}}
+			              </div>
+			              <div>
+			              	<span>折扣 &nbsp;&nbsp; : </span>
+			              	{{todayPartDetail.discount}}
+			              </div>
+			              <div>
+			              	<span>实付 &nbsp;&nbsp; : </span>
+			              	{{todayPartDetail.finalAmount}}
+			              </div>
+			            </div>
+			          </div>
+			           <!--  <div class="modal-footer">
+			                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+			            </div> -->
+			        </div>
+			    </div>
+			</div>
+			<!-- Modal end -->
+		</div>
+	</div>
+</div>

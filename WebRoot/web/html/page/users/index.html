@@ -1,0 +1,12 @@
+<div class="child-nav" ng-show="which == 'part'">
+	<ul class="ul-tab style-none">
+		<li ui-sref-active="active">
+			<a ui-sref=".index">门店管理</a>
+		</li>
+		<li ui-sref-active="active">
+			<a ui-sref=".table">桌号设置</a>
+		</li>
+	</ul>
+</div>
+<!-- this is your code of wrapper -->
+<div class="content" ui-view="child"></div>

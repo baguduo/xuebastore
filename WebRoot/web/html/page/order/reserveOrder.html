@@ -1,0 +1,110 @@
+<div class="top-search">
+	<form class="form-inline">
+		<div>
+			<div class="form-group">
+				<label>预定状态：</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" name="reserveStatus"> 未到预定时间
+				</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" name="reserveStatus"> 已过预定时间
+				</label>
+			</div>
+		</div>
+		<div>
+			<div class="form-group">
+				<label>订单状态：</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" name="orderStatus"  ng-model="queryData" value="all"> 全部
+				</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" name="orderStatus"  ng-model="queryData" ng-value="1"> 已付款
+				</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" name="orderStatus"  ng-model="queryData" ng-value="3"> 已接单
+				</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" name="orderStatus"  ng-model="queryData" ng-value="5"> 已配送
+				</label>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" name="orderStatus"  ng-model="queryData" ng-value="7"> 已成交
+				</label>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="order-table">
+	<table class="table table-bordered">
+		<tbody>
+			<tr class="info">
+				<th>订单号</th>
+				<th>下单时间</th>
+				<th>收件人</th>
+				<th>联系电话</th>
+				<th>收货地址</th>
+				<th>门店名称</th>
+				<th>订单内容</th>
+				<th>总价</th>
+				<th>订单状态</th>
+				<th>订单来源</th>
+				<th>操作</th>
+				<th>备注</th>
+			</tr>
+			<tr ng-repeat="item in orderList track by item.id">
+				<td>{{item.id}}</td>
+				<td>{{item.orderTime}}</td>
+				<td>{{item.consigneeName}}</td>
+				<td>{{item.consigneePhone}}</td>
+				<td>{{item.consigneeAddress}}</td>
+				<td>{{item.storeName}}</td>
+				<td>{{item.consigneeName}}</td>
+				<td>{{item.totalAmount}}</td>
+				<td>{{item.statusValue}}</td>
+				<td>{{item.source}}</td>
+				<td>
+					<a href="">催单</a>
+					<a ui-sref="modifyOrder">修改</a>
+					<a href="#allot" data-toggle="modal">分配</a>
+					<a href="#deleteOrder" data-toggle="modal">取消</a>
+				</td>
+				<td>{{item.remark}}</td>
+			</tr>
+			<!-- <tr>
+				<td>12345678</td>
+				<td>2015-08-11 15:30</td>
+				<td>XXX</td>
+				<td>13540656916</td>
+				<td>高新西区龙湖时代天街</td>
+				<td>芭夯兔长顺店</td>
+				<td>汤锅，干锅，芭夯兔</td>
+				<td>340元</td>
+				<td class="pay">已付款</td>
+				<td>来一火</td>
+				<td>
+					<a href="">催单</a>
+					<a href="">修改</a>
+					<a href="">分配</a>
+					<a href="">取消</a>
+				</td>
+				<td>线下支付</td>
+			</tr> -->
+		</tbody>
+	</table>
+	<div class="order-rule right">
+		<span>时间由近及远排序</span>
+	</div>
+</div>

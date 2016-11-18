@@ -1,0 +1,302 @@
+baseurl = localhost:8081/takeout/
+注：
+（1）后面写的url 是省略掉BASE_URL后余下的部分，为了便于文档编写，实际编码需要补全。
+（2）所有请求的返回为json格式，其内容模板如下：
+{
+    "status": 9,
+    "body": null,
+     "success": false
+}
+		其中：
+status：表示状态码，会在下面各个请求中做介绍
+		body：json格式的值，会根据请求的不同和状态不同赋予不同的值。
+
+
+
+
+增加总店菜品分类:
+url: /api/headdishescate
+method: post
+Request:
+{
+"name":"xxx",  //菜品分类名称
+"status":"1",  //菜品分类状态（暂填1） 
+"sort":"1	//菜品分类排序码（暂填1） 
+
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品分类成功" 
+}
+
+修改总店菜品分类:
+url: /api/headdishescate
+method: patch
+Request:
+{
+"id":"1", 	//菜品分类id  (修改时id为填，其它为选填)
+"name":"xxx",  //菜品分类名称
+"status":"1",  //菜品分类状态
+"sort":"1	//菜品分类排序码
+
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品分类成功" 
+}
+
+查询总店菜品分类:
+url: /api/headdishescate/query   ///api/headdishescate/query"parameters["xx1"]=xx1&&parameters["xx2"]=xx2
+method: patch
+Request:
+{
+}
+Parameters
+{
+parameters["xx"]=xx //参数选填，所填参数为过滤参数
+}
+Response:
+{
+    "status": 0,
+    "body": [    //查询结果，json数组
+        {
+            "id": 1,
+            "name": "update",
+            "status": 1,
+            "sort": 1,
+            "created": 1448267563000,
+            "modified": 1448267739000
+        }
+    ]
+    "message": null
+}
+
+
+增加门店菜品分类:
+url: /api/shopdishescate
+method: post
+Request:
+{
+"headDishesCategoryId":"xx",  //对应总店菜品分类id,门店自创分类该值填0
+"name":"xxx",  //菜品分类名称
+"status":"1",  //菜品分类状态（暂填1） 
+"sort":"1	//菜品分类排序码（暂填1） 
+
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品分类成功" 
+}
+
+修改门店菜品分类:
+url: /api/headdishescate
+method: patch
+Request:
+{
+"headDishesCategoryId":"xx",
+"id":"1", 	//菜品分类id  (修改时id为填，其它为选填)
+"name":"xxx",  //菜品分类名称
+"status":"1",  //菜品分类状态
+"sort":"1	//菜品分类排序码
+
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品分类成功" 
+}
+
+查询门店菜品分类:
+url: /api/headdishescate/query   ///api/headdishescate/query"parameters["xx1"]=xx1&&parameters["xx2"]=xx2
+method: patch
+Request:
+{
+}
+Parameters
+{
+parameters["xx"]=xx //参数选填，所填参数为过滤参数
+}
+Response:
+{
+    "status": 0,
+    "body": [  //查询结果，json数组
+        {
+            "id": 1,
+            "name": "update",
+            "status": 1,
+            "sort": 1,
+            "created": 1448267563000,
+            "modified": 1448267739000
+        }
+    ]
+    "message": null
+}
+
+
+
+
+增加总店菜品:
+url: /api/headdishes
+method: post
+Request:
+{
+"headDishesCatagoryId":"1",  //对应总店菜品分类id
+"price":"10", 	//菜品单价
+"stock":"100",	//菜品库存
+"description":"xxxxxxx",//菜品描述
+"name":"xxx",  //菜品名称
+"status":"1" //菜品状态（暂填1） 
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品分类成功" 
+}
+
+修改总店菜品:
+url: /api/headdishes
+method: patch
+Request:
+{
+"id":"1", 	//菜品分类id  (修改时id为填，其它为选填)
+"price":"10", 	//菜品单价
+"stock":"100",	//菜品库存
+"description":"xxxxxxx",//菜品描述
+"name":"xxx",  //菜品名称
+"status":"1" //菜品状态
+
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品成功" 
+}
+
+查询总店菜品:
+url: /api/headdishes/query   ///api/headdishes/query"parameters["xx1"]=xx1&&parameters["xx2"]=xx2
+method: patch
+Request:
+{
+}
+Parameters
+{
+parameters["xx"]=xx //参数选填，所填参数为过滤参数
+}
+Response:
+{
+    "status": 0,
+    "body": [    //查询结果，json数组
+        {
+            "id": 1,
+            "shopId": null,
+            "headDishesCatagoryId": null,
+            "name": "xxxx",
+            "price": 20,
+            "stock": null,  		//库存
+            "soldNumber": null,		//已经销售数量
+            "description": "updatetest",
+            "praiseNumber": null,	//菜品赞数
+            "status": 1,
+            "created": 1448280220000,
+            "modified": 1448280333000
+        }
+    ],
+    "message": null
+}
+
+
+
+增加分店菜品:
+url: /api/headdishes
+method: post
+Request:
+{
+"headDishesId":"1", //对应总店菜品id,分店自创菜品该值填0
+"shopId":"1",	 //分店id
+"shopDishesCatagoryId":"1",  //对应分店菜品分类id
+"price":"10", 	//菜品单价
+"stock":"100",	//菜品库存
+"description":"xxxxxxx",//菜品描述
+"name":"xxx",  //菜品名称
+"isOriginal":"1", //是否自创菜品， 1--是，0--不是
+"status":"1" //菜品状态（暂填1） 
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品分类成功" 
+}
+
+修改分店菜品:
+url: /api/shopdishes
+method: patch
+Request:
+{
+"id":"1", 	//菜品id  (修改时id为填，其它为选填)
+"headDishesId":"1", //对应总店菜品id,分店自创菜品该值填0
+"shopId":"1",	 //分店id
+"price":"10", 	//菜品单价
+"stock":"100",	//菜品库存
+"description":"xxxxxxx",//菜品描述
+"name":"xxx",  //菜品名称
+"status":"1" //菜品状态
+
+}
+Response:
+{
+    "status": 0,    //状态值，0--成功，1--失败
+    "body": null,
+    "message": "添加菜品成功" 
+}
+
+查询总店菜品:
+url: /api/shopdishes/query   ///api/shopdishes/query"parameters["xx1"]=xx1&&parameters["xx2"]=xx2
+method: patch
+Request:
+{
+}
+Parameters
+{
+parameters["xx"]=xx //参数选填，所填参数为过滤参数
+}
+Response:
+{
+    "status": 0,
+    "body": [    //查询结果，json数组
+        {
+            "id": 1,
+            "headDishesId": null,
+            "shopId": null,
+            "shopDishesCatagoryId": null,
+            "name": "xxxx",
+            "price": 20,
+            "stock": null,
+            "soldNumber": null,
+            "description": "xxcvdxkfjskdfj",
+            "praiseNumber": null,
+            "status": 1,
+            "isOriginal": null,
+            "created": 1448283653000,
+            "modified": 1448283653000
+        }
+    ],
+    "message": null
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+.content{
+    padding:20px;
+    /*background-color: #fff;*/
+}
+.m-top{
+    padding:20px;
+    border:1px solid #ddd;
+    background-color: #fff;
+}
+
+table th,table td{
+    text-align:center !important;
+    vertical-align:middle !important;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+.form-error{
+    color:red;
+}
+
+.modal-body>img{
+    max-width:288px;
+    max-height:368px;
+}
+
+
+.caiPin{
+    margin-top:20px;
+    border:1px solid #ddd;
+}
+.caiPin table td>input{
+    max-width:100px;
+}
+
+.m-dialog{
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:50px;
+    padding:20px;
+    width:300px;
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:5px;
+    
+}
+.m-dialog>img{
+
+}
+
+.caiPin-list{
+    margin-top:20px;
+}
+.dishesType>table{
+    margin-top:20px;
+    background-color: #fff;
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/app" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/libs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/libs/angular/angular-ui-router.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/libs/angular/angular.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/common/header.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/index.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/account" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/accountManage" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/activity" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/dishes" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/addFlight.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/flights.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/index1.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/login.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/order" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/orderInfo" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/rights" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/userinfo" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/users" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/users/userRegister.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/partIndex.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/img" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/common/global.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/common/router.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/account" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/accountManage" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/activity" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/dishes" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/flights/flights.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/order" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/orderInfo" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/rights" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/userInfo" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/users" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/users/userRegister.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/script" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebRoot/webcss" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/AdminAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/FlightAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/UserAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/AdminServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/FlightServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/UserServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring-mvc_back.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/webdefault.xml" charset="GBK" />
+  </component>
+</project>
