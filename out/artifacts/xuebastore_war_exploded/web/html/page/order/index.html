@@ -1,0 +1,24 @@
+<div class="child-nav">
+	<ul class="ul-tab style-none">
+		<li ui-sref-active="active">
+			<a ui-sref=".allOrder">全部订单</a>
+		</li>
+		<li ui-sref-active="active">
+			<a ui-sref=".orderReciving">接单</a>
+		</li>
+		<li ui-sref-active="active">
+			<a ui-sref=".reserveOrder">预订单</a>
+		</li>
+		<li ui-sref-active="active" ng-show="which == 'part'">
+			<a ui-sref=".index">催单</a>
+		</li>
+		<li ui-sref-active="active">
+			<a ui-sref=".cancelOrder">退单</a>
+		</li>
+		<li ui-sref-active="active">
+			<a ui-sref=".historyOrder">历史订单</a>
+		</li>
+	</ul>
+</div>
+<!-- this is your code of wrapper -->
+<div class="content" ui-view="child"></div>

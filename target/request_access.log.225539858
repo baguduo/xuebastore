@@ -1,0 +1,17 @@
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:44 +0800] "POST /XueBaStore/api/user/login HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "POST /XueBaStore/api/user/login HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "GET /XueBaStore/web/html/page/userIndex.html HTTP/1.1" 200 2763 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "GET /XueBaStore/web/css/page/dishes/dishes.css HTTP/1.1" 200 799 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "GET /XueBaStore/web/css/page/rights/rights.css HTTP/1.1" 200 521 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "GET /XueBaStore/web/css/page/users/stores.css HTTP/1.1" 404 1405 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "GET /XueBaStore/web/css/page/order.css HTTP/1.1" 200 1808 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "GET /XueBaStore/web/css/page/activity/activity.css HTTP/1.1" 200 752 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:49 +0800] "GET /XueBaStore/web/css/page/accountManage/accountManage.css HTTP/1.1" 200 1505 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:58 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 206 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:41:58 +0800] "GET /XueBaStore/api/user/query HTTP/1.1" 200 715 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:42:12 +0800] "POST /XueBaStore/api/user/login HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:42:12 +0800] "GET /XueBaStore/web/css/page/users/stores.css HTTP/1.1" 404 1405 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:42:16 +0800] "GET /XueBaStore/web/html/page/flights/flights.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:42:16 +0800] "GET /XueBaStore/api/flight/query HTTP/1.1" 200 836 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:42:18 +0800] "GET /XueBaStore/web/html/page/users/addStore.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [14/十一月/2016:22:42:21 +0800] "GET /XueBaStore/api/flight/query HTTP/1.1" 200 836 

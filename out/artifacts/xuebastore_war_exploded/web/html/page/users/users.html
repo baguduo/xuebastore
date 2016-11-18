@@ -1,0 +1,117 @@
+<div ng-controller="users as vm" >
+
+    <!--<div class="m-top">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-6">-->
+                <!--<select class="form-control" ng-model="selected" ng-change="vm.selectStore(selected.id)" ng-options="selectItem.name for selectItem in vm.data.storeSelect" >-->
+                    <!--<option  value="">&#45;=&#45;门店列表&#45;&#45;</option>-->
+                <!--</select>-->
+            <!--</div>-->
+            <!--<div class="col-md-6">-->
+                <!--<div class="input-group">-->
+                    <!--<input class="form-control" ng-model="storeName" type="text" placeholder="门店名称" />-->
+                    <!--<span class="input-group-btn">-->
+                        <!--<button class="btn btn-default" ng-click="vm.searchStore(storeName)" type="button">查询</button>-->
+                     <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="users-form">
+        <!--<a class="btn btn-default setStore" ui-sref="addStore">新建门店</a>-->
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>联系电话</th>
+                <th>住址</th>
+
+                <!--<th>店长姓名</th>-->
+                <!--<th>联系方式</th>-->
+                <th>飞友会</th>
+                <th>注册时间</th>
+                <th>操作</th>
+
+                <!--<th>门店/名称</th>-->
+                <!--<th>门店ID</th>-->
+                <!--<th>门店地址</th>-->
+                <!--<th>联系电话</th>-->
+                <!--<th>店长姓名</th>-->
+                <!--<th>联系方式</th>-->
+                <!--<th>参与活动</th>-->
+                <!--<th>操作</th>-->
+                <!--<th>备注</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="userItem in vm.data.userList">
+
+                <!--<td><a ui-sref="storeInfo({id:storeItem.id})">{{storeItem.name}}</a></td>-->
+                <td>{{userItem.id}}</td>
+                <td>{{userItem.username}}</td>
+                <td>{{userItem.password}}</td>
+                <td>{{userItem.phone}}</td>
+                <td style="max-width:200px;">{{userItem.address}}</td>
+                <td>{{userItem.remark}}</td>
+                <td>{{userItem.created}}</td>
+                <!--<td>{{storeItem.managerNamePhone}}</td>-->
+                <!--<td><button type="button" class="btn btn-default btn-xs" ng-click="vm.getActivity(userItem.id)" data-target="#activity" data-toggle="modal">详情</button></td>-->
+                <td>
+                    <!--<button class="btn btn-default btn-xs" ng-click="" ng-show="true">修改</button>
+                    <button class="btn btn-default btn-xs" ng-click="" ng-show="">保存</button>-->
+                    <button class="btn btn-default btn-xs" ng-click="vm.deleteUser(userItem.id)" ng-show="true">删除</button>
+                </td>
+                <!--<td>{{storeItem.remark}}</td>-->
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagination-container">
+        <div class="pagination"></div>
+    </div>
+    </div>
+
+    <!-- Modal -->
+    <!--<div class="modal fade" id="activity" tabindex="-1" role="dialog" aria-labelledby="activityLabel">-->
+        <!--<div class="modal-dialog modal-lg" role="document">-->
+            <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <!--<h4 class="modal-title" id="activityLabel">参与活动</h4>-->
+                <!--</div>-->
+                <!--<div class="modal-body" >-->
+                    <!--<span ng-show="!vm.isLoaded">正在加载中。。。</span>-->
+                    <!--<span ng-show="vm.activityList.length==0&&vm.isLoaded">暂时还没有数据</span>-->
+                    <!--<table class="table table-bordered" ng-show="vm.activityList.length!=0">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>编号</th>-->
+                            <!--<th>活动名称</th>-->
+                            <!--<th>开始时间</th>-->
+                            <!--<th>结束时间</th>-->
+                            <!--<th>活动详情</th>-->
+                            <!--<th>活动菜品分类</th>-->
+                            <!--<th>折扣(折)</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<tr ng-repeat="value in vm.activityList">-->
+                            <!--<td>{{value.id}}</td>-->
+                            <!--<td>{{value.name}}</td>-->
+                            <!--<td>{{value.startTime}}</td>-->
+                            <!--<td>{{value.endTime}}</td>-->
+                            <!--<td>{{value.discountDetail}}</td>-->
+                            <!--<td>{{value.discountDishesValue}}</td>-->
+                            <!--<td>{{value.discountValue}}</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+                <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">确认</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

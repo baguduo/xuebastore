@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>飞友汇用户界面</title>
+    <!-- common style -->
+    <link rel="stylesheet" type="text/css" href="../../../libs/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../libs/bootstrap/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/global.css" />
+    <!-- common style end -->
+
+    <!-- dishes -->
+    <link rel="stylesheet" href="../../css/page/dishes/dishes.css">
+
+    <!-- store -->
+    <link rel="stylesheet" href="../../css/page/users/stores.css">
+
+    <!-- order -->
+    <link rel="stylesheet" type="text/css" href="../../css/page/order.css" />
+
+    <!-- rights -->
+    <link rel="stylesheet" type="text/css" href="../../css/page/rights/rights.css" />
+
+    <!-- activity -->
+    <link rel="stylesheet" type="text/css" href="../../css/page/activity/activity.css">
+    <!-- accountManage -->
+    <link rel="stylesheet" type="text/css" href="../../css/page/accountManage/accountManage.css">
+</head>
+<body ng-init="which = 'total'">
+<!-- header start -->
+<div class="header" ng-controller="header" ng-include="'common/header.html'"></div>
+<!-- header end -->
+
+<!-- aside start -->
+<div class="aside left" ng-controller="aside" ng-include="'common/aside.html'"></div>
+<!-- aside end -->
+
+<!-- main start -->
+<div class="main" ui-view></div>
+<!-- main end -->
+
+<!-- common script -->
+<!--<script src="../../../libs/jquery/jquery-1.11.3.min.js"></script>-->
+<!--<script src="../../../libs/jquery/jquery.pagination.js"></script>-->
+<!--<script type="text/javascript" src="../../../libs/angular/angular.min.js"></script>-->
+<!--<script type="text/javascript" src="../../../libs/angular/angular-ui-router.min.js"></script>-->
+<!--<script src="../../../libs/bootstrap/js/bootstrap.min.js"></script>-->
+<!--<script src="../../../libs/bootstrap/js/bootstrap-datetimepicker.min.js"></script>-->
+<!--<script type="text/javascript" src="../../js/common/global.js"></script>-->
+<!--<script type="text/javascript" src="../../js/common/router.js"></script>-->
+<!-- common script -->
+
+<!--<script type="text/javascript" src="../../js/page/order/order.js"></script>-->
+<!--<script type="text/javascript" src="../../js/page/dishes/dishes.js"></script>-->
+<!--<script type="text/javascript" src="../../js/page/stores/stores.js"></script>-->
+<!--<script type="text/javascript" src="../../js/page/rights/rights.js"></script>-->
+<!--<script type="text/javascript" src="../../js/page/activity/activity.js"></script>-->
+<!--<script type="text/javascript" src="../../js/page/accountManage/accountManage.js"></script>-->
+</body>
+</html>

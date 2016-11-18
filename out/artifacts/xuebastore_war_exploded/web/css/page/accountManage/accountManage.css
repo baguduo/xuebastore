@@ -1,0 +1,83 @@
+.accountManage {
+	background-color: #fff;
+	padding: 20px;
+}
+.accountManage input {
+	margin-right: 5px !important;
+}
+.accountManage label {
+	cursor: pointer;
+}
+.accountManage .margin {
+	margin-right: 10px;
+}
+.accountManage .height-reset {
+	line-height: 34px;
+}
+.accountManage .panel-body {
+	padding: 2px !important;
+	padding-top: 15px !important;
+}
+.accountManage .searchStore {
+	padding-left: 0;
+	margin-top: 5px;
+}
+.accountManage .form-group {
+	margin-bottom: 0 !important;
+}
+.accountManage .searchStore .col-md-4 {
+	padding-right: 0 !important;
+}
+.accountManage .searchStore .col-md-3 {
+	padding-left: 0 !important;
+}
+.accountManage .searchStore label {
+	line-height: 36px;
+}
+.accountManage select.form-control {
+	width: auto !important;
+}
+.accountManage .noPadding {
+	padding: 0 !important;
+}
+.accountManage .noPadding table {
+	width: 100%;
+	border: 0;
+}
+.accountManage .noPadding td {
+	width: 25%;
+    word-break: break-all;
+    padding: 2px 0;
+}
+.accountManage .accountTitle {
+	padding: 0;
+}
+.accountManage .accountTitle span {
+	width: 25%;
+    display: inline-block;
+    text-align: center;
+    border-left: 1px solid #eee;
+    float: left;
+    padding: 8px;
+}
+.accountManage .resetWidth {
+	width: 50px;
+}
+.accountManage .resetWidth2 {
+	width: 90px;
+}
+.accountManage .resetWidth3 {
+	width: 78px;
+}
+.accountManage .aboutOrder {
+	color: blue;
+	cursor: pointer;
+}
+.resetModal {
+	top : 100px !important;
+}
+.accountManage .orderDetail span {
+	display: inline-block;
+	width: 80px;
+	margin-bottom: 10px;
+}

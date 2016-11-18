@@ -1,0 +1,41 @@
+<div class="dishesType" ng-controller="dishesType as vm">
+    <div class="m-top">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" ng-model="className" type="text" placeholder="输入你要添加的分类" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="vm.addClass(className)" type="button">添加分类</button>
+                     </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>★分类名称：</th>
+            <th>编号</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="classItem in vm.classList">
+            <td style="max-width: 200px;">
+                <span ng-show="!classItem.isSet">{{classItem.name}}</span>
+                <input class="form-control" type="text" value="{{classItem.name}}" ng-model="classItem.name" ng-show="classItem.isSet"/>
+            </td>
+            <td>
+                <span>{{classItem.sort}}</span>
+                <!--<input class="form-control" type="text" value="{{classItem.sort}}" ng-model="classItem.sort" ng-show="classItem.isSet"/>-->
+            </td>
+            <td>
+                <button class="btn btn-default " ng-click="classItem.isSet=true" ng-show="!classItem.isSet">修改</button>
+                <button class="btn btn-default " ng-click="vm.setClass(classItem)" ng-show="classItem.isSet">保存修改</button>
+                <button class="btn btn-default" ng-click="vm.deleteClass(classItem.id)">删除</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

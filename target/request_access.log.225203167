@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 -  -  [29/十月/2016:22:48:58 +0800] "GET /XueBaStore/web/html/login.html HTTP/1.1" 200 1053 
+0:0:0:0:0:0:0:1 -  -  [29/十月/2016:22:48:58 +0800] "GET /libs/jquery/jquery-1.11.3.min.js HTTP/1.1" 404 1300 
+0:0:0:0:0:0:0:1 -  -  [29/十月/2016:22:48:58 +0800] "GET /libs/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1304 
+0:0:0:0:0:0:0:1 -  -  [29/十月/2016:22:48:58 +0800] "GET /libs/bootstrap/js/bootstrap.min.js HTTP/1.1" 404 1302 
+0:0:0:0:0:0:0:1 -  -  [29/十月/2016:22:48:58 +0800] "GET /XueBaStore/css/page/login.css HTTP/1.1" 404 1394 
+0:0:0:0:0:0:0:1 -  -  [29/十月/2016:22:48:58 +0800] "GET /XueBaStore/js/page/login.js HTTP/1.1" 404 1392 
+0:0:0:0:0:0:0:1 -  -  [29/十月/2016:22:48:58 +0800] "GET /favicon.ico HTTP/1.1" 200 1150 

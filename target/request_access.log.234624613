@@ -1,0 +1,10 @@
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:42:42 +0800] "POST /XueBaStore/api/user/add HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:42:50 +0800] "POST /XueBaStore/api/user/add HTTP/1.1" 200 240 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:42:59 +0800] "POST /XueBaStore/api/user/login HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:43:02 +0800] "POST /XueBaStore/api/user/login HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:43:35 +0800] "POST /XueBaStore/api/user/delete HTTP/1.1" 200 210 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:43:44 +0800] "POST /XueBaStore/api/user/delete HTTP/1.1" 200 208 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:43:46 +0800] "POST /XueBaStore/api/user/delete HTTP/1.1" 200 208 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:44:30 +0800] "POST /XueBaStore/api/user/update HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:44:39 +0800] "POST /XueBaStore/api/user/update HTTP/1.1" 200 209 
+0:0:0:0:0:0:0:1 -  -  [02/十一月/2016:23:45:03 +0800] "POST /XueBaStore/api/user/get HTTP/1.1" 400 1392 

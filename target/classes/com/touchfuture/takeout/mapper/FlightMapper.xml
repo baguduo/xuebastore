@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.touchfuture.takeout.mapper.FlightMapper" >
+  <resultMap id="BaseResultMap" type="com.touchfuture.takeout.bean.Flight" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="fltNo" property="fltno" jdbcType="VARCHAR" />
+    <result column="airline" property="airline" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="takeoff" property="takeoff" jdbcType="VARCHAR" />
+    <result column="landing" property="landing" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="punctuality" property="punctuality" jdbcType="REAL" />
+    <result column="takeoffTime" property="takeofftime" jdbcType="TIME" />
+    <result column="landingTime" property="landingtime" jdbcType="TIME" />
+    <result column="planeId" property="planeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, fltNo, airline, type, takeoff, landing, date, punctuality, takeoffTime, landingTime,
+    planeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from flight
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from flight
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.touchfuture.takeout.bean.Flight" >
+    insert into flight (id, fltNo, airline,
+      type, takeoff, landing, 
+      date, punctuality, takeoffTime, 
+      landingTime, planeId)
+    values (#{id,jdbcType=INTEGER}, #{fltno,jdbcType=VARCHAR}, #{airline,jdbcType=VARCHAR},
+      #{type,jdbcType=VARCHAR}, #{takeoff,jdbcType=VARCHAR}, #{landing,jdbcType=VARCHAR},
+      #{date,jdbcType=DATE}, #{punctuality,jdbcType=REAL}, #{takeofftime,jdbcType=TIME}, 
+      #{landingtime,jdbcType=TIME}, #{planeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.touchfuture.takeout.bean.Flight" >
+    insert into flight
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="fltno != null" >
+        fltNo,
+      </if>
+      <if test="airline != null" >
+        airline,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="takeoff != null" >
+        takeoff,
+      </if>
+      <if test="landing != null" >
+        landing,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="punctuality != null" >
+        punctuality,
+      </if>
+      <if test="takeofftime != null" >
+        takeoffTime,
+      </if>
+      <if test="landingtime != null" >
+        landingTime,
+      </if>
+      <if test="planeid != null" >
+        planeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="fltno != null" >
+        #{fltno,jdbcType=VARCHAR},
+      </if>
+      <if test="airline != null" >
+        #{airline,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="takeoff != null" >
+        #{takeoff,jdbcType=VARCHAR},
+      </if>
+      <if test="landing != null" >
+        #{landing,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="punctuality != null" >
+        #{punctuality,jdbcType=REAL},
+      </if>
+      <if test="takeofftime != null" >
+        #{takeofftime,jdbcType=TIME},
+      </if>
+      <if test="landingtime != null" >
+        #{landingtime,jdbcType=TIME},
+      </if>
+      <if test="planeid != null" >
+        #{planeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.touchfuture.takeout.bean.Flight" >
+    update flight
+    <set >
+      <if test="fltno != null" >
+        fltNo = #{fltno,jdbcType=VARCHAR},
+      </if>
+      <if test="airline != null" >
+        airline = #{airline,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="takeoff != null" >
+        takeoff = #{takeoff,jdbcType=VARCHAR},
+      </if>
+      <if test="landing != null" >
+        landing = #{landing,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="punctuality != null" >
+        punctuality = #{punctuality,jdbcType=REAL},
+      </if>
+      <if test="takeofftime != null" >
+        takeoffTime = #{takeofftime,jdbcType=TIME},
+      </if>
+      <if test="landingtime != null" >
+        landingTime = #{landingtime,jdbcType=TIME},
+      </if>
+      <if test="planeid != null" >
+        planeId = #{planeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.touchfuture.takeout.bean.Flight" >
+    update flight
+    set fltNo = #{fltno,jdbcType=VARCHAR},
+      airline = #{airline,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      takeoff = #{takeoff,jdbcType=VARCHAR},
+      landing = #{landing,jdbcType=VARCHAR},
+      date = #{date,jdbcType=DATE},
+      punctuality = #{punctuality,jdbcType=REAL},
+      takeoffTime = #{takeofftime,jdbcType=TIME},
+      landingTime = #{landingtime,jdbcType=TIME},
+      planeId = #{planeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="isExitByDateAndFltNo" resultType="boolean" parameterType="com.touchfuture.takeout.bean.Flight" >
+    select
+    count(id)
+    from flight
+    where fltno = #{fltno,jdbcType=INTEGER} and date = #{date,jdbcType=DATE}
+  </select>
+  <select id="isExitById" resultType="boolean" parameterType="com.touchfuture.takeout.bean.Flight" >
+    select
+    count(id)
+    from flight
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryAll" resultMap="BaseResultMap" parameterType="com.touchfuture.takeout.common.QueryBase" >
+    select *
+    from flight
+    <include refid="where_with_condition" />
+    LIMIT #{firstRow},#{maxRow}
+  </select>
+  <select id="countFlight" parameterType="com.touchfuture.takeout.common.QueryBase" resultType="long">
+    SELECT COUNT(id) FROM flight
+    <include refid="where_with_condition" />
+  </select>
+
+  <sql id="where_with_condition">
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <if test="parameters.id != null and parameters.id != ''">AND id = #{parameters.id}
+      </if>
+    </trim>
+
+  </sql>
+</mapper>

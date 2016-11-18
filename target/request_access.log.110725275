@@ -1,0 +1,9 @@
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:22 +0800] "GET /XueBaStore/web/html/page/login.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:22 +0800] "GET /XueBaStore/web/js/page/login.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:23 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 206 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:24 +0800] "GET /XueBaStore/web/html/page/index.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:24 +0800] "GET /XueBaStore/web/js/common/global.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:24 +0800] "GET /XueBaStore/web/js/common/router.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:24 +0800] "GET /XueBaStore/web/html/common/aside.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:10:51:24 +0800] "GET /XueBaStore/web/html/common/header.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [05/十一月/2016:11:06:16 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 206 

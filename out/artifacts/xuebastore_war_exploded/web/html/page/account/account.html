@@ -1,0 +1,118 @@
+<form class="form-inline account-form" name="queryByDeskNum" novalidate ng-submit="orderDetailEvent()">
+	<div class="form-group">
+		<label>餐台：</label>
+		<input ng-hide="deskNumInit" type="number" class="form-control" name="deskNum" ng-model="deskNum" required>
+		<p class="form-control-static" ng-show="deskNumInit">{{deskNum}}</p>
+	</div>
+	<div class="form-group" ng-hide="deskNumInit">
+		<button type="submit" class="btn btn-default">确定</button>
+	</div>
+	<p class="text-danger" style="margin-left: 4em;" ng-show="!deskNumInit && queryByDeskNum.deskNum.$invalid && queryByDeskNum.deskNum.$dirty">餐台号只能为数字！</p>
+</form>
+
+<div ng-show="hasOrderDetail">
+	<div class="ordered-list clearfix">
+		<table class="table" ng-repeat="child in orderDishesList">
+			<tbody>
+				<tr>
+					<th>菜品</th>
+					<th>数量</th>
+					<th>单价</th>
+				</tr>
+			  	<tr ng-repeat="item in child.repastDishes track by $index">
+			  		<td>{{item.name}}</td>
+			  		<td>{{item.dishesNum}}</td>
+			  		<td>{{item.dishesPrice}}</td>
+			  	</tr>
+				<tr>
+					<td>总计</td>
+					<td></td>
+					<td class="text-danger">{{child.totalAmout}}元</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="text-center text-danger" style="clear: both; font-size: 1.4em;">总计：{{orderDetail.totalAmount}}元</p>
+	</div>
+
+	<form class="form-inline account-form">
+		<p class="text-info" style="font-size: 1.5em;">
+			<div class="form-group">
+				<label>
+					<input type="checkbox" name="discountLabel" value="true" ng-model="accountLabel.self" ng-change="canPay()"> 是否打折
+				</label>
+			</div>
+		</p>
+		<div ng-show="accountLabel.self">
+			<div class="form-group" style="margin-left: 8em;">
+				<label>
+					<input type="radio" class="form-control" value="true" ng-change="accountLabelChange('discount')" ng-model="accountLabel.discount" name="discount"> 总店打折：
+				</label>
+			</div>
+			<div class="form-group">
+				<select class="form-control" ng-model="discountData.discount" ng-disabled="(accountLabel.discount != 'true')" ng-options="item.discountDetail for item in discountList track by item.id">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>
+					<input type="radio" class="form-control" ng-change="accountLabelChange('discountBranch')" ng-model="accountLabel.discountBranch" value="true" name="discount"> 分店打折：
+				</label>
+			</div>
+			<div class="form-group">
+				<select class="form-control" ng-model="discountData.discountBranch" ng-disabled="accountLabel.discountBranch !== 'true'" ng-options="item.discountDetail for item in discountBranchList track by item.id">
+					<!-- <option ng-repeat="item in discountBranchList" value="{{item.id}}">{{item.discountDetail}}</option> -->
+				</select>
+			</div>
+			<!-- <div class="form-group">
+				<label>
+					<input type="radio" class="form-control" name="discount" ng-change="accountLabelChange('coupon')" ng-model="accountLabel.coupon" value="true"> 折扣券/代金券：
+				</label>
+			</div> -->
+			<!-- <div class="form-group">
+				<input type="text" class="form-control" ng-model="discountData.coupon" ng-disabled="accountLabel.coupon !== 'true'">
+			</div> -->
+			<div class="form-group">
+				<button type="button" class="btn btn-primary" ng-disabled="accountLabel.self && !(accountLabel.discountBranch || accountLabel.discount)" ng-click="discountEvent()">确定</button>
+			</div>
+		</div>
+		<p class="text-center text-danger" style="margin-top: 1em; font-size: 1.4em;">应付：{{finalAmount}}元</p>
+		<div style="width: 30%; margin: 1em auto;">
+			<button type="button" class="btn btn-danger btn-block" ng-disabled="payLabel" data-toggle="modal" data-target="#account">在线付款</button>
+		</div>
+		<div style="width: 30%; margin: 1em auto;">
+			<button type="button" class="btn btn-danger btn-block" ng-disabled="payLabel" ng-click="payCash()">现金付款</button>
+		</div>
+	</form>
+</div>
+
+<div id="account" class="modal fade order-modal">
+<div class="modal-dialog" role="document" aria-labellebby="accountLabel">
+    <div class="modal-content">
+        <div class="modal-body">
+            <form class="form-horizontal" name="pay" ng-submit="payEvent($event)">
+                <div class="form-group">
+                	<label class="col-md-3 col-md-offset-1">支付方式:</label>
+                    <label style="margin-left: 1.5em;" ng-click="focus()">
+                    	<input type="radio" name="channel" value="ALI_SCAN" ng-model="payData.channel">
+                    	<img class="pay-label" src="../img/ali.jpg">
+                    </label>
+                    <label style="margin-left: 1.5em;" ng-click="focus()">
+                    	<input type="radio" name="channel" value="WX_SCAN" ng-model="payData.channel">
+                    	<img class="pay-label" src="../img/weixin.jpg">
+                    </label>
+                </div>
+                <div class="form-group" ng-show="payData.channel">
+                    <label class="col-md-3 col-md-offset-1">条形码：</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="auth_code" ng-model='payData.auth_code'>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-btn">
+                <button type="button" name="payBtn" class="btn btn-block btn-danger" ng-disabled="!(payData.channel && payData.auth_code)" ng-click="payEvent($event)">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

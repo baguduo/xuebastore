@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:47 +0800] "GET /XueBaStore/web/html/page/login.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:47 +0800] "GET /XueBaStore/libs/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:47 +0800] "GET /XueBaStore/libs/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:47 +0800] "GET /XueBaStore/web/js/page/login.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:47 +0800] "GET /XueBaStore/web/css/page/login.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:47 +0800] "GET /XueBaStore/libs/jquery/jquery-1.11.3.min.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:47 +0800] "GET /XueBaStore/libs/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:48 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 206 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:48 +0800] "GET /XueBaStore/web/html/index.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:48 +0800] "GET /XueBaStore/web/html/page/users/users.html HTTP/1.1" 200 5776 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:49 +0800] "GET /XueBaStore/libs/angular/angular.min.js.map HTTP/1.1" 404 1407 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:23:17:49 +0800] "GET /XueBaStore/api/user/query HTTP/1.1" 200 391 

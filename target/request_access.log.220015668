@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:21:59:55 +0800] "GET /XueBaStore/web/html/page/index.html HTTP/1.1" 200 2840 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:21:59:55 +0800] "GET /XueBaStore/libs/jquery/jquery.pagination.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:21:59:55 +0800] "GET /XueBaStore/libs/jquery/jquery-1.11.3.min.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:21:59:55 +0800] "GET /XueBaStore/libs/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:21:59:55 +0800] "GET /XueBaStore/web/css/common/global.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:21:59:55 +0800] "GET /XueBaStore/libs/bootstrap/css/bootstrap-datetimepicker.min.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:21:59:55 +0800] "GET /favicon.ico HTTP/1.1" 200 1150 

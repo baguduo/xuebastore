@@ -1,0 +1,108 @@
+<div class="storeInfo"  ng-controller="storeInfo as vm">
+    <div class="headImg" >
+        <img src="../img/headImg.png" ng-src="{{vm.storeData.pictureUrl}}" alt="门店头像"/>
+        <input type="file" ng-show="vm.isSet==true" onchange="angular.element(this).scope().uploadImg(this.files)"/>
+    </div>
+    <div class="storeForm" ng-show="vm.isSet==false">
+        <h1>{{vm.storeData.name}}</h1>
+        <ul class="list-group">
+            <!--<li class="list-group-item">门店状态：{{vm.storeData.statusValue}}</li>-->
+            <li class="list-group-item">门店ID：{{vm.storeData.id}}</li>
+            <li class="list-group-item">门店电话：{{vm.storeData.phone}}</li>
+            <li class="list-group-item">店长姓名：{{vm.storeData.managerName}}</li>
+            <li class="list-group-item">店长手机：{{vm.storeData.managerNamePhone}}</li>
+            <li class="list-group-item">门店地址：{{vm.storeData.address}}</li>
+            <!--<li class="list-group-item">门店经度：{{vm.storeData.gpsLongitude}}</li>
+            <li class="list-group-item">门店纬度：{{vm.storeData.gpsLatitude}}</li>-->
+            <!--<li class="list-group-item">参与活动：</li>-->
+        </ul>
+    </div>
+
+    <form class="form-horizontal" name="storeInfo" ng-show="vm.isSet" novalidate>
+        <!--<div class="form-group">
+            <label class="col-md-3 control-label">门店状态</label>
+            <div class="col-md-9" >
+                <select class="form-control"  ng-model="vm.storeData.status">
+                    <option value="0" ng-selected="vm.storeData.status==0">正在营业</option>
+                    <option value="1" ng-selected="vm.storeData.status==1">暂停营业</option>
+                    <option value="2" ng-selected="vm.storeData.status==2">停止营业</option>
+                </select>
+            </div>
+        </div>-->
+        <div class="form-group">
+            <label for="storeName" class="col-md-3 control-label">门店名称</label>
+            <div class="col-md-9" >
+                <input type="text" class="form-control" id="storeName" name="storeName" ng-model="vm.storeData.name" placeholder="不得为空" required>
+                <span class="form-error" ng-show="storeInfo.storeName.$error.required&&storeInfo.storeName.$dirty">不得为空</span>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label for="storeId" class="col-md-3 control-label">门店ID</label>
+            <div class="col-md-9" >
+                <input type="text" class="form-control" id="storeId" name="storeId" ng-model="vm.storeData.id" placeholder="不得为空" required>
+                <span class="form-error" ng-show="storeInfo.storeId.$error.required&&storeInfo.storeId.$dirty">不得为空</span>
+            </div>
+        </div>-->
+        <div class="form-group">
+            <label for="phone" class="col-md-3 control-label">门店电话</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="phone" name="phone" ng-model="vm.storeData.phone" placeholder="不得为空" required>
+                <span ng-show="storeInfo.phone.$error.required&&storeInfo.phone.$dirty" class="form-error">不得为空</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-md-3 control-label">店长姓名</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="username" name="username" ng-model="vm.storeData.managerName" placeholder="不得为空" required>
+                <span ng-show="storeInfo.username.$error.required&&storeInfo.username.$dirty" class="form-error">不得为空</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="userTel" class="col-md-3 control-label">店长手机</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="userTel" name="userTel" ng-model="vm.storeData.managerNamePhone" placeholder="不得为空" required>
+                    <span class="form-error">
+                        <span ng-show="storeInfo.userTel.$error.required&&storeInfo.userTel.$dirty">不得为空</span>
+                        <!--<span ng-show="storeInfo.userTel.$dirty&&storeInfo.userTel.$invalid">手机格式不正确</span>-->
+                    </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="col-md-3 control-label">门店地址</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="address" name="address" ng-model="vm.storeData.address" placeholder="不得为空" required>
+                <!--<span class="glyphicon glyphicon-map-marker map-address" ng-click="vm.map()" data-toggle="modal" data-target="#myModal"></span>-->
+                <span ng-show="storeInfo.address.$error.required&&storeInfo.address.$dirty" class="form-error">不得为空</span>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label for="lng" class="col-md-3 control-label">经度</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="lng" name="lng" ng-model="vm.storeData.gpsLongitude" placeholder="不得为空" required>
+                <span class="form-error" ng-show="storeInfo.lng.$error.required&&storeInfo.lng.$dirty">不得为空</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lat" class="col-md-3 control-label">纬度</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="lat" name="lat" ng-model="vm.storeData.gpsLatitude" placeholder="不得为空" required>
+                <span class="form-error" ng-show="storeInfo.lat.$error.required&&storeInfo.lat.$dirty">不得为空</span>
+            </div>
+        </div>-->
+        <!--<div class="form-group">
+            <label  class="col-md-3 control-label">参与活动</label>
+            <div class="col-md-9">
+                &lt;!&ndash;<input type="text" class="form-control" id="activity" name="activity" ng-model="activity" placeholder="参与活动" required>&ndash;&gt;
+                <textarea class="form-control" rows="3" ></textarea>
+                &lt;!&ndash;<span ng-show="storeInfo.storeId.$error.required&&storeInfo.storeId.$dirty" class="ng-error">不得为空</span>&ndash;&gt;
+            </div>
+        </div>-->
+    </form>
+    <div class="clearBoth">
+        <button class="btn btn-primary" ng-show="!vm.isSet" ng-click="vm.isSet=true" type="button">修改</button>
+        <button ng-show="!vm.isSet" ui-sref="stores"  class="btn btn-default" type="button">返回</button>
+        <button class="btn btn-primary" ng-show="vm.isSet" ng-click="vm.setStore(vm.storeData,storeInfo.$invalid)" type="button">确定</button>
+        <button class="btn btn-default" ng-show="vm.isSet" ng-click="vm.isSet=false" type="button">取消</button>
+    </div>
+</div>
+

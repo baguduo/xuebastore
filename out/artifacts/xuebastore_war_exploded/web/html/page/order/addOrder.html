@@ -1,0 +1,65 @@
+<div class="add-order">
+	<form class="form-inline">
+		<div>请填写订单信息：</div>
+		<div>
+			<div class="form-group">
+				<label>用户名：</label>
+				<input type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>联系电话：</label>
+				<input class="form-control" type="text" />
+			</div>
+			<div class="form-group">
+				<label>地址：</label>
+				<input class="form-control address" type="text" />
+			</div>
+		</div>
+		<div>
+			<div class="form-group">
+				<label>门店名称：</label>
+				<select class="form-control">
+					<option>选择配送门店</option>
+					<option>长顺店</option>
+					<option>科华南路店</option>
+					<option>蜀汉店</option>
+					<option>益州大道店</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>订单来源：</label>
+				<input type="text" class="form-control" placeholder="电话订单" disabled readonly> 
+			</div>
+		</div>
+		<div>
+			<div class="form-group">
+				<label>备注：</label>
+				<input type="text" class="form-control remark">
+			</div>
+			<div class="form-group right">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDishes">添加菜品</button>
+			</div>
+		</div>
+		<div>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="info">
+						<th>菜品</th>
+						<th>单价（元）</th>
+						<th>份数</th>
+						<th>金额（元）</th>
+					</tr>
+					<tr>
+						<td>兔</td>
+						<td>120</td>
+						<td>2</td>
+						<th>240</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="width: 30%; margin: 10px auto;">
+			<button type="button" class="btn btn-danger btn-block">确认</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:22:28:48 +0800] "POST /XueBaStore/api/user/query HTTP/1.1" 405 1442 
+0:0:0:0:0:0:0:1 -  -  [12/十一月/2016:22:28:53 +0800] "GET /XueBaStore/api/user/query HTTP/1.1" 200 446 

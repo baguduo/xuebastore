@@ -1,0 +1,74 @@
+<div ng-controller="storeBranch as vm" >
+    <div class="branch-storeInfo">
+        <div class="row">
+            <div class="col-md-2">{{vm.storeData.name}}</div>
+            <ul class="col-md-8 list-group">
+                <li class="list-group-item">ID：{{vm.storeData.id}}</li>
+                <li class="list-group-item">地址：{{vm.storeData.address}}</li>
+            </ul>
+            <div class="col-md-2">
+                <img src="../img/headImg.png" ng-src="{{vm.storeData.pictureUrl}}"/>
+            </div>
+        </div>
+    </div>
+    <div class="branch-otherInfo branch">
+        <h1 class="branch-header">
+            基本信息
+            <a href="" ng-show="!vm.isSet" ng-click="vm.isSet=true">修改</a>
+            <a href="" ng-show="vm.isSet" ng-click="vm.getOtherInfo(vm.storeData)">保存</a>
+        </h1>
+        <form class="branch-content form-horizontal" ng-show="vm.isSet">
+            <div class="form-group">
+                <label for="phone" class="col-md-2 control-label">电话:</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="phone" ng-model="vm.storeData.phone" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remark" class="col-sm-2 control-label">备注:</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="3" id="remark"  ng-model="vm.storeData.remark" placeholder="" ></textarea>
+                </div>
+            </div>
+        </form>
+        <ul class="branch-content list-group" ng-show="!vm.isSet">
+            <li class="list-group-item">电话:{{vm.storeData.phone}}</li>
+            <li class="list-group-item">备注:{{vm.storeData.remark}}</li>
+        </ul>
+    </div>
+    <div class="branch-setting branch">
+        <h1 class="branch-header">
+            营业设置
+            <a href="" ng-click="vm.setting(vm.storeData)">修改</a>
+        </h1>
+        <ul class="branch-content list-group">
+            <li class="list-group-item">
+                营业日：
+                <div class="btn-group">
+                    <button class="btn  " ng-class="{true:'active btn-success',false:'btn-default'}[vm.shopDaysData.indexOf('1')!=-1]" ng-click="vm.checkDate('1')">周一</button>
+                    <button class="btn  " ng-class="{true:'active btn-success',false:'btn-default'}[vm.shopDaysData.indexOf('2')!=-1]" ng-click="vm.checkDate('2')">周二</button>
+                    <button class="btn  " ng-class="{true:'active btn-success',false:'btn-default'}[vm.shopDaysData.indexOf('3')!=-1]" ng-click="vm.checkDate('3')">周三</button>
+                    <button class="btn  " ng-class="{true:'active btn-success',false:'btn-default'}[vm.shopDaysData.indexOf('4')!=-1]" ng-click="vm.checkDate('4')">周四</button>
+                    <button class="btn  " ng-class="{true:'active btn-success',false:'btn-default'}[vm.shopDaysData.indexOf('5')!=-1]" ng-click="vm.checkDate('5')">周五</button>
+                    <button class="btn  " ng-class="{true:'active btn-success',false:'btn-default'}[vm.shopDaysData.indexOf('6')!=-1]" ng-click="vm.checkDate('6')">周六</button>
+                    <button class="btn  " ng-class="{true:'active btn-success',false:'btn-default'}[vm.shopDaysData.indexOf('7')!=-1]" ng-click="vm.checkDate('7')">周日</button>
+                </div>
+            </li>
+            <li class="list-group-item">
+                营业时间：
+                <label class="radio-inline">
+                    <input type="radio" name="runTime" ng-model="vm.storeData.shopType" value="a">24小时营业
+                </label>
+                <label class="radio-inline" >
+                    <input type="radio" name="runTime" ng-model="vm.storeData.shopType" value="b"> 设置营业时间段
+                </label>
+            </li>
+            <li class="list-group-item" style="padding:5px 20px;" ng-show="vm.storeData.shopType=='b'">
+                <input ng-model="vm.storeData.shopTime" type="text" class="form-control" placeholder="格式为10:00-12:00"/>
+            </li>
+            <!--<li class="list-group-item">
+                允许用户下订单的时间段：
+            </li>-->
+        </ul>
+    </div>
+</div>

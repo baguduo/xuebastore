@@ -1,0 +1,31 @@
+.rightManage {
+	background-color: #fff;
+	padding : 20px !important;
+}
+
+.rightManage a {
+	color: #000 !important;
+	text-decoration: none;
+}
+
+.rightManage a:hover {
+	color: #666 !important;
+}
+.rightManage .form-group {
+	margin-bottom: 0 !important; 
+}
+.rightManage .checkbox {
+	margin-left: 20px !important;
+}
+.rightManage .modal-dialog {
+	width: 400px !important;
+	top : 100px !important;
+}
+.rightManage .resetPassCss {
+	background-color: #fff;
+	border : 0;
+}
+.rightManage .pass input {
+	width: 100px;
+	overflow: hidden;
+}

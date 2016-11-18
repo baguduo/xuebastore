@@ -1,0 +1,45 @@
+.orderInfo {
+	background-color: #fff;
+	padding: 20px;
+}
+.orderInfo a {
+	color: #000;
+	text-decoration: none;
+}
+
+.orderInfo a:hover {
+	color: #666;
+}
+.orderInfo .form-group {
+	margin-bottom: 0 !important; 
+}
+.orderInfo .checkbox {
+	margin-left: 20px !important;
+}
+
+.orderInfo tr.disabled-true {
+	color: #AFAEAE;
+}
+.orderInfo .modal-dialog {
+	top : 100px !important;
+	width: 400px !important;
+}
+.orderInfo .modal-body label {
+	float: left;
+	width: 20%;
+}
+.orderInfo .input-reset {
+	width: 80% !important;
+	margin-bottom: 20px;
+}
+.orderInfo .margin {
+	margin-top: 10px;
+	overflow: hidden;
+}
+.orderInfo .reset {
+	width: 70%;
+	float: left;
+}
+.orderInfo .form_datetime {
+	max-width: 1000px !important;
+}

@@ -1,0 +1,14 @@
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /XueBaStore/web/html/page/login.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /XueBaStore/libs/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /XueBaStore/web/js/page/login.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /XueBaStore/web/css/page/login.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /XueBaStore/libs/jquery/jquery-1.11.3.min.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /XueBaStore/libs/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /XueBaStore/libs/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:31 +0800] "GET /favicon.ico HTTP/1.1" 200 1150 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:32 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 206 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:32 +0800] "GET /XueBaStore/web/html/page/index.html HTTP/1.1" 200 2639 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:32 +0800] "GET /XueBaStore/web/js/common/global.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:32 +0800] "GET /XueBaStore/web/js/common/router.js HTTP/1.1" 404 1399 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:32 +0800] "GET /XueBaStore/web/html/page/common/header.html HTTP/1.1" 404 1408 
+0:0:0:0:0:0:0:1 -  -  [04/十一月/2016:00:44:32 +0800] "GET /XueBaStore/web/html/page/common/aside.html HTTP/1.1" 404 1407 

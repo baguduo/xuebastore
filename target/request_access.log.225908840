@@ -1,0 +1,8 @@
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:53:43 +0800] "GET /XueBaStore/web/html/login.html HTTP/1.1" 404 1395 
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:53:43 +0800] "GET /favicon.ico HTTP/1.1" 200 1150 
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:53:53 +0800] "GET /XueBaStore/web/html/page/login.html HTTP/1.1" 200 1057 
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:53:53 +0800] "GET /XueBaStore/web/js/page/login.js HTTP/1.1" 200 1250 
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:53:56 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 71 
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:53:57 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 71 
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:54:32 +0800] "POST /XueBaStore/api/admin HTTP/1.1" 200 71 
+0:0:0:0:0:0:0:1 -  -  [31/十月/2016:22:54:50 +0800] "POST /XueBaStore/api/admin/login HTTP/1.1" 200 71 

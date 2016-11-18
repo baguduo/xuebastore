@@ -1,0 +1,126 @@
+<div class="orderInfo" ng-controller="orderInfo">
+	<div class="col-md-4 input-group">
+		<form role="form">
+			<input type="text" ng-model="tel" class="form-control input-reset" placeholder="联系号码">
+			<span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="searchOrderInfo(tel)">查询</button></span>
+		</form>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<th>编号</th>
+			<th>订餐人姓名</th>
+			<th>联系号码</th>
+			<th>就餐人数</th>
+			<th>订餐时间</th>
+			<th>就餐时间</th>
+			<th>操作</th>
+			<th>备注</th>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="orderInfoAbout in orderInfo.orderInfoAbout">
+				<td class="col-sm-1">
+					<span>{{orderInfoAbout.id}}</span>
+				</td>
+
+				<td class="col-sm-2">
+					<span>{{orderInfoAbout.name}}</span>
+				</td>
+				
+				<td class="col-sm-1">
+					<span>{{orderInfoAbout.tel}}</span>
+				</td>
+				
+				<td class="col-sm-1">
+					<span>{{orderInfoAbout.guestsamount}}</span>
+				</td>
+
+				<td class="col-sm-2">
+					<span>{{orderInfoAbout.ordertime |  date:"yyyy-MM-dd hh:mm"}}</span>
+				</td>
+				
+				<td class="col-sm-2">
+					<span>{{orderInfoAbout.arrivetime | date:"yyyy-MM-dd HH:mm"}}</span>
+				</td>
+				
+				<td class="col-sm-2">
+					<span ng-hide="changeRight">
+						<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#changeOrderInfo" ng-click="changeOrder(orderInfoAbout,$index)">修改</button>
+						<button type="button" class="btn btn-default btn-sm" ng-click="orderInfoDel(orderInfoAbout)">删除</button>
+					</span>
+				</td>
+				
+				<td class="col-sm-2">
+					<span>{{orderInfoAbout.remarks}}</span>
+				</td>
+
+				<!-- Modal -->
+				<div class="modal fade" id="changeOrderInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				    <div class="modal-dialog" role="document">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				            </div>
+				            <div class="modal-body">
+				                <form role="form">
+					            	<div class="form-group">
+										<div class="margin">
+											<label>预定人姓名</label>
+											<div class="reset">
+													<input type="text" class="form-control" ng-model="changeOrderInfo.name" />	
+											</div>
+										</div>	
+										
+										<div class="margin">
+											<label>联系电话</label>
+											<div class="reset">
+												<input type="text" class="form-control" ng-model="changeOrderInfo.tel" />	
+											</div>										
+										</div>	
+										
+										<div class="margin">
+											<label>就餐人数</label>
+											<div class="reset">
+												<input type="text" class="form-control" ng-model="changeOrderInfo.guestsamount" />	
+											</div>
+										</div>	
+										
+										<div class="form-group margin">
+											<label>就餐时间</label>
+											<div class="reset">
+												<div class="input-group input-append date form_datetime">
+													<input type="text" class="form-control" ng-model="changeOrderInfo.arrivetime">
+													<span class="input-group-addon">
+														<i class="glyphicon glyphicon-th"></i>
+													</span>
+												</div>
+											</div>
+										
+										</div>	
+
+										<div class="margin">
+											<label>备注</label>
+											<div class="reset">
+												<input type="text" class="form-control" ng-model="changeOrderInfo.remarks" />	
+											</div>
+										</div>					
+
+									</div>
+					            </form>
+				            </div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-primary" ng-click="orderInfoSure(changeOrderInfo)" data-dismiss="modal">确认</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<!-- Modal end -->
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="pagination-container">
+		<div class="pagination"></div>
+	</div>
+</div>
+

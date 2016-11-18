@@ -1,0 +1,17 @@
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:00:48 +0800] "POST /xuebastore/api/admin HTTP/1.1" 404 1288 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:31 +0800] "POST /xuebastore/api/admin HTTP/1.1" 404 1288 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /XueBaStore/web/html/login.html HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /XueBaStore/web/css/page/login.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /XueBaStore/libs/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /XueBaStore/libs/jquery/jquery-1.11.3.min.js HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /XueBaStore/page/login.js HTTP/1.1" 404 1389 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /XueBaStore/libs/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /XueBaStore/libs/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:03:42 +0800] "GET /favicon.ico HTTP/1.1" 200 1150 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:07:03 +0800] "POST /xuebastore/api/admin HTTP/1.1" 404 1288 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:07:06 +0800] "POST /xuebastore/api/admin HTTP/1.1" 404 1288 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:19:24 +0800] "POST /xuebastore/api/admin HTTP/1.1" 404 1288 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:19:34 +0800] "POST /api/admin HTTP/1.1" 404 1277 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:19:45 +0800] "POST /xueba/api/admin HTTP/1.1" 404 1283 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:20:02 +0800] "POST /xuebastore/api/admin HTTP/1.1" 404 1288 
+0:0:0:0:0:0:0:1 -  -  [30/十月/2016:17:31:27 +0800] "POST /xuebastore/api/admin HTTP/1.1" 404 1288 

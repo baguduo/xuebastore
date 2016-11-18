@@ -1,0 +1,203 @@
+/*************总店门店列表**************/
+.users-form{
+    margin-top:20px;
+    padding:20px;
+    border:1px solid #ddd;
+    background-color: #fff;
+    overflow:hidden;
+}
+.setStore{
+    float:right;
+    margin:0 20px 20px 0;
+}
+.m-top select{
+    max-width:200px;
+}
+
+/*************总店门店详情**************/
+.storeInfo{
+    width:820px;
+    overflow: hidden;
+}
+
+.storeInfo .headImg{
+    position:relative;
+    width:380px;
+    height:490px;
+    float:left;
+    margin-right:20px;
+    /*background-repeat:no-repeat;
+    background-size:380px 490px;*/
+}
+.storeInfo .headImg>img{
+    width:380px;
+    height:490px;
+    border-radius:5px;
+    z-index:1;
+}
+.storeInfo .headImg>input{
+    position:absolute;
+    top:0;
+    left:0;
+    display:block;
+    width:380px;
+    height:490px;
+    opacity: 0;
+}
+.storeInfo .headImg>input:hover{
+    cursor:pointer;
+}
+
+.storeForm,.storeInfo>form{
+    width:420px;
+    min-height:490px;
+    float:left;
+    padding:20px;
+    background-color:#fff;
+    border:1px solid #ddd;
+    border-radius: 5px;
+}
+.storeForm>h1{
+    margin-top:20px;
+    margin-bottom:20px;
+    font-size:24px;
+    text-align:center;
+}
+.storeInfo>form .status{
+    margin:20px auto;
+    width:150px;
+}
+
+
+.storeInfo .clearBoth{
+    clear:both;
+    padding:20px 0;
+    width:820px;
+    overflow:hidden;
+    text-align:right;
+}
+.storeInfo .clearBoth>button{
+
+}
+/*************总店新建门店**************/
+.newStore{
+    border:1px solid #ddd;
+    background-color:#fff;
+}
+
+.newStore form{
+    width:400px;
+    margin:0 auto;
+    padding:20px;
+    text-align:center;
+}
+.newStore form>h1{
+    margin-bottom:20px;
+    text-align:center;
+    font-size:24px;
+}
+.newStore form>.form-group{
+    position:relative;
+}
+.newStore form>.form-group span{
+    position:absolute;
+    top:5px;
+    right:-50px;
+}
+/*.newStore>form .status{
+    margin:20px auto;
+    width:150px;
+}*/
+.newStore .headImg{
+    /*margin-left:15px;*/
+    position:relative;
+    width:151px;
+    height:151px;
+    /*background-repeat:no-repeat;*/
+    /*background-size:151px 151px;*/
+}
+.newStore .headImg>img{
+    width:151px;
+    height:151px;
+    z-index:1;
+}
+.newStore .headImg>input{
+    position: absolute;
+    top:0;
+    left:15px;
+    display:block;
+    width:151px;
+    height:151px;
+    opacity: 0;
+    z-index:2;
+}
+.newStore .headImg>input:hover{
+    cursor:pointer;
+}
+
+.newStore .button-group>button{
+    width:100px;
+}
+
+#address{
+    position:relative;
+}
+.newStore .map-address{
+    position:absolute;
+    top:0;
+    right:-20px;
+    font-size:30px;
+}
+.newStore .map-address:hover{
+    cursor:pointer;
+}
+
+/*************分店管理的样式**************/
+.branch-storeInfo{
+    border:1px solid #ddd;
+    padding:20px;
+    background: #fff;
+    overflow: hidden;
+}
+.branch-storeInfo h1{
+    font-size:18px;
+}
+/*.branch-storeInfo>ul{
+    margin-left:100px;
+    margin-right:180px;
+}*/
+.branch-storeInfo img{
+    width:80px;
+    height:80px;
+    float:right;
+}
+.branch-storeInfo ul{
+    margin-bottom:0;
+}
+
+.branch{
+    margin-top:20px;
+    border:1px solid #ddd;
+    padding:20px;
+    background: #fff;
+    overflow: hidden;
+}
+.branch>h1{
+    font-size:18px;
+    border-bottom:2px solid #ccc;
+}
+.branch>h1>a{
+    font-size:14px;
+    float:right;
+}
+.branch .branch-content{
+    padding:20px;
+}
+
+/*************桌号设置**************/
+.tableSetting>form{
+    margin:20px auto;
+    width:800px;
+    background-color: #fff;
+    padding:20px;
+}

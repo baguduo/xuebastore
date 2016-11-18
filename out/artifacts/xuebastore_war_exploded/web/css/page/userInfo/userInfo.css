@@ -1,0 +1,12 @@
+.userInfo {
+	background-color: #fff;
+	padding: 20px;
+}
+.userInfo .searchUser {
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.userInfo table {
+	margin-top: 20px;
+}
