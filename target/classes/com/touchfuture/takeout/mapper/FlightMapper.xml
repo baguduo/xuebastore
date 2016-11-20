@@ -176,6 +176,7 @@
   <select id="queryAll" resultMap="BaseResultMap" parameterType="com.touchfuture.takeout.common.QueryBase" >
     select *
     from flight
+    ORDER BY DATE
     <include refid="where_with_condition" />
     LIMIT #{firstRow},#{maxRow}
   </select>

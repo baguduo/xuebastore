@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by user on 2016/11/13.
@@ -126,6 +127,8 @@ public class FlightAction {
         }
         flightService.query(query);
         message = "查询成功";
+        logger.warn(query.getResults());
+
         return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
     }
 }

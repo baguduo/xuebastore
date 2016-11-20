@@ -1,6 +1,7 @@
 package com.touchfuture.takeout.bean;
 
-import java.util.Date;
+import java.sql.Time;
+import java.sql.Date;
 
 public class Flight {
     private Integer id;
@@ -19,9 +20,9 @@ public class Flight {
 
     private Float punctuality;
 
-    private Date takeofftime;
+    private Time takeofftime;
 
-    private Date landingtime;
+    private Time landingtime;
 
     private String planeid;
 
@@ -89,19 +90,19 @@ public class Flight {
         this.punctuality = punctuality;
     }
 
-    public Date getTakeofftime() {
+    public Time getTakeofftime() {
         return takeofftime;
     }
 
-    public void setTakeofftime(Date takeofftime) {
+    public void setTakeofftime(Time takeofftime) {
         this.takeofftime = takeofftime;
     }
 
-    public Date getLandingtime() {
+    public Time getLandingtime() {
         return landingtime;
     }
 
-    public void setLandingtime(Date landingtime) {
+    public void setLandingtime(Time landingtime) {
         this.landingtime = landingtime;
     }
 
