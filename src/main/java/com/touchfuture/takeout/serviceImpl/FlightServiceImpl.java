@@ -104,11 +104,29 @@ public class FlightServiceImpl implements FlightService{
     @Override
     public void query(QueryBase queryBase) {
         if(logger.isDebugEnabled()){
-            logger.debug("根据参数"+queryBase.getParameters()+"查询用户");
+            logger.debug("根据参数" + queryBase.getParameters() + "查询用户");
         }
         queryBase.getParameters().put("statusDelete","-1");
         //queryBase.setResults(userMapper.queryAll(queryBase));
         queryBase.setResults(flightMapper.queryAll(queryBase));
         queryBase.setTotalRow(flightMapper.countFlight(queryBase));
+    }
+
+    public void queryTakeoffTimeNear(QueryBase queryBase){
+        if(logger.isDebugEnabled()){
+            logger.debug("根据参数"+queryBase.getParameters()+"查询用户");
+        }
+        queryBase.getParameters().put("statusDelete","-1");
+        queryBase.setResults(flightMapper.queryTakeoffTimeNearest(queryBase));
+        queryBase.setTotalRow(flightMapper.countTakeoffTimeNear(queryBase));
+    }
+
+    public void queryLandingTimeNear(QueryBase queryBase){
+        if(logger.isDebugEnabled()){
+            logger.debug("根据参数"+queryBase.getParameters()+"查询用户");
+        }
+        queryBase.getParameters().put("statusDelete","-1");
+        queryBase.setResults(flightMapper.queryLandingTimeNearest(queryBase));
+        queryBase.setTotalRow(flightMapper.countLandingTimeNear(queryBase));
     }
 }

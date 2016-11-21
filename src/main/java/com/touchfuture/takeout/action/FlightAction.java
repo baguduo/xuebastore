@@ -131,4 +131,44 @@ public class FlightAction {
 
         return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
     }
+
+    /**
+     * 查询据当前时间最接近的降落航班信息
+     * @param request 请求
+     * @param query 查询参数对象
+     * @return 0-成功 1-失败
+     */
+    @ResponseBody
+    @RequestMapping(value = "/api/flight/timeTakeoffNear",method = RequestMethod.GET)
+    public Object queryTimeTakeoffNear(HttpServletRequest request,QueryBase query){
+        String message;
+        if(query == null){
+            query = new QueryBase();
+        }
+        flightService.queryTakeoffTimeNear(query);
+        message = "查询成功";
+        logger.warn(query.getResults());
+
+        return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
+    }
+
+    /**
+     * 查询据当前时间最接近的起飞航班信息
+     * @param request 请求
+     * @param query 查询参数对象
+     * @return 0-成功 1-失败
+     */
+    @ResponseBody
+    @RequestMapping(value = "/api/flight/timeLandingNear",method = RequestMethod.GET)
+    public Object queryTimeLandingNear(HttpServletRequest request,QueryBase query){
+        String message;
+        if(query == null){
+            query = new QueryBase();
+        }
+        flightService.queryLandingTimeNear(query);
+        message = "查询成功";
+        logger.warn(query.getResults());
+
+        return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
+    }
 }

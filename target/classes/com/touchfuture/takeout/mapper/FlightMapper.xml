@@ -184,6 +184,33 @@
     SELECT COUNT(id) FROM flight
     <include refid="where_with_condition" />
   </select>
+  <select id="queryTakeoffTimeNearest" parameterType="com.touchfuture.takeout.common.QueryBase" resultMap="BaseResultMap">
+   SELECT *
+   FROM flight
+   WHERE  TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',takeoffTime))>0
+   ORDER BY date
+  </select>
+
+  <select id="countTakeoffTimeNear" parameterType="com.touchfuture.takeout.common.QueryBase" resultType="long">
+    SELECT
+    count(id)
+    FROM flight
+    WHERE  TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',takeoffTime))>0
+  </select>
+
+  <select id="queryLandingTimeNearest" parameterType="com.touchfuture.takeout.common.QueryBase" resultMap="BaseResultMap">
+    SELECT *
+    FROM flight
+    WHERE  TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',landingTime))>0
+    ORDER BY date
+  </select>
+
+  <select id="countLandingTimeNear" parameterType="com.touchfuture.takeout.common.QueryBase" resultType="long">
+    SELECT
+    count(id)
+    FROM flight
+    WHERE  TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',landingTime))>0
+  </select>
 
   <sql id="where_with_condition">
     <trim prefix="WHERE" prefixOverrides="AND">
