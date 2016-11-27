@@ -34,4 +34,8 @@ public interface FlightMapper {
     List<Flight> queryLandingTimeNearest(QueryBase queryBase);
 
     long countLandingTimeNear(QueryBase queryBase);
+
+    List<Flight> queryTakeoffOrLandingTimeNearest(QueryBase queryBase);
+
+    long countTakeoffOrLandingTimeNear(QueryBase queryBase);
 }

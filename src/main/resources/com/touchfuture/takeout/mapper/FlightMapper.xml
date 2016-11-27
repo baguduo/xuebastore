@@ -14,6 +14,18 @@
     <result column="landingTime" property="landingtime" jdbcType="TIME" />
     <result column="planeId" property="planeid" jdbcType="VARCHAR" />
   </resultMap>
+
+  <resultMap id="FlightAndPlaneResultMap" type="com.touchfuture.takeout.bean.Flight" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="fltNo" property="fltno" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="plane.pType" property="ptype" jdbcType="VARCHAR" />
+    <!--<association property="plane" javaType="com.touchfuture.takeout.bean.Plane">-->
+      <!--<id property="type" column="type"/>-->
+      <!--<result property="ptype" column="type"/>-->
+    <!--</association>-->
+  </resultMap>
   <sql id="Base_Column_List" >
     id, fltNo, airline, type, takeoff, landing, date, punctuality, takeoffTime, landingTime,
     planeId
@@ -210,6 +222,24 @@
     count(id)
     FROM flight
     WHERE  TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',landingTime))>0
+  </select>
+
+  <select id="queryTakeoffOrLandingTimeNearest" parameterType="com.touchfuture.takeout.common.QueryBase" resultMap="FlightAndPlaneResultMap">
+    SELECT flight.date,flight.fltNo,flight.type,plane.pType
+    FROM flight,plane
+    WHERE
+     flight.type = plane.type
+     and (TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',flight.takeoffTime))>0 or TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',flight.landingTime))>0)
+    ORDER BY date
+  </select>
+
+  <select id="countTakeoffOrLandingTimeNear" parameterType="com.touchfuture.takeout.common.QueryBase" resultType="long">
+    SELECT
+    count(flight.id)
+    FROM flight,plane
+    WHERE
+    flight.type=plane.type
+    and (TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',flight.takeoffTime))>0 or TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',flight.landingTime))>0)
   </select>
 
   <sql id="where_with_condition">

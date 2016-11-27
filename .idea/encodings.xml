@@ -46,9 +46,12 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/AdminAction.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/FlightAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/PlaneAction.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/UserAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/common/WeatherUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/AdminServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/FlightServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/PlaneServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/UserServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="GBK" />

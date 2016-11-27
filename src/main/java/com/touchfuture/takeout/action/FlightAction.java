@@ -168,6 +168,29 @@ public class FlightAction {
         flightService.queryLandingTimeNear(query);
         message = "查询成功";
         logger.warn(query.getResults());
+        List<? extends  Object> list = query.getResults();
+        //Flight flight = (Flight)list.get(0);
+
+        return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
+    }
+
+    /**
+     * 根据用户ip所在地、天气和机型推荐航班
+     */
+    @ResponseBody
+    @RequestMapping(value = "api/user/flightRecommend",method = RequestMethod.GET)
+    public Object flightRecommend(HttpServletRequest request,QueryBase query){
+        String message;
+        if(query == null){
+            query = new QueryBase();
+        }
+        flightService.queryTakeoffOrLandingTimeNear(query);
+
+
+        message = "查询成功";
+        logger.warn(query.getResults());
+        List<? extends  Object> list = query.getResults();
+        //Flight flight = (Flight)list.get(0);
 
         return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
     }

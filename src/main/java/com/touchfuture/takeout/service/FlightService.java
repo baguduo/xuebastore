@@ -9,4 +9,5 @@ import com.touchfuture.takeout.common.QueryBase;
 public interface FlightService extends BasicService<Flight> {
     void queryTakeoffTimeNear(QueryBase queryBase);
     void  queryLandingTimeNear(QueryBase queryBase);
+    void  queryTakeoffOrLandingTimeNear(QueryBase queryBase);
 }

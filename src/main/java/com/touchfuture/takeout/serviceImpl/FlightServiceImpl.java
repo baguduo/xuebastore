@@ -116,7 +116,8 @@ public class FlightServiceImpl implements FlightService{
         if(logger.isDebugEnabled()){
             logger.debug("根据参数"+queryBase.getParameters()+"查询用户");
         }
-        queryBase.getParameters().put("statusDelete","-1");
+        queryBase.getParameters().put("statusDelete", "-1");
+
         queryBase.setResults(flightMapper.queryTakeoffTimeNearest(queryBase));
         queryBase.setTotalRow(flightMapper.countTakeoffTimeNear(queryBase));
     }
@@ -128,5 +129,14 @@ public class FlightServiceImpl implements FlightService{
         queryBase.getParameters().put("statusDelete","-1");
         queryBase.setResults(flightMapper.queryLandingTimeNearest(queryBase));
         queryBase.setTotalRow(flightMapper.countLandingTimeNear(queryBase));
+    }
+
+    public void queryTakeoffOrLandingTimeNear(QueryBase queryBase){
+        if(logger.isDebugEnabled()){
+            logger.debug("根据参数"+queryBase.getParameters()+"查询航班");
+        }
+        queryBase.getParameters().put("statusDelete","-1");
+        queryBase.setResults(flightMapper.queryTakeoffOrLandingTimeNearest(queryBase));
+        queryBase.setTotalRow(flightMapper.countTakeoffOrLandingTimeNear(queryBase));
     }
 }
