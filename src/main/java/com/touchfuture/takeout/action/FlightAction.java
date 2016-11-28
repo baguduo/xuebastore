@@ -2,6 +2,7 @@ package com.touchfuture.takeout.action;
 
 import com.touchfuture.takeout.bean.Flight;
 import com.touchfuture.takeout.bean.User;
+import com.touchfuture.takeout.common.AddressUtil;
 import com.touchfuture.takeout.common.QueryBase;
 import com.touchfuture.takeout.common.Response;
 import com.touchfuture.takeout.common.Status;
@@ -14,7 +15,10 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by user on 2016/11/13.
@@ -184,11 +188,28 @@ public class FlightAction {
         if(query == null){
             query = new QueryBase();
         }
+
+        //根据IP获取用户所在城市
+        AddressUtil addressUtils = new AddressUtil();
+        String ip ="125.70.11.136" ;
+        String address = "";
+        try {
+            address = addressUtils.getAddresses("ip="+ip, "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        String cityName = address.substring(0,address.length()-1);
+        System.out.println(cityName);
+        Map<String,Object> parameters = query.getParameters();
+        parameters.put("city",cityName);
+
+
         flightService.queryTakeoffOrLandingTimeNear(query);
-
-
         message = "查询成功";
         logger.warn(query.getResults());
+
+
         List<? extends  Object> list = query.getResults();
         //Flight flight = (Flight)list.get(0);
 
