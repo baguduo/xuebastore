@@ -1,22 +1,4 @@
 <div ng-controller="landingFlights as vm" >
-
-    <!--<div class="m-top">-->
-    <!--<div class="row">-->
-    <!--<div class="col-md-6">-->
-    <!--<select class="form-control" ng-model="selected" ng-change="vm.selectStore(selected.id)" ng-options="selectItem.name for selectItem in vm.data.storeSelect" >-->
-    <!--<option  value="">&#45;=&#45;门店列表&#45;&#45;</option>-->
-    <!--</select>-->
-    <!--</div>-->
-    <!--<div class="col-md-6">-->
-    <!--<div class="input-group">-->
-    <!--<input class="form-control" ng-model="storeName" type="text" placeholder="门店名称" />-->
-    <!--<span class="input-group-btn">-->
-    <!--<button class="btn btn-default" ng-click="vm.searchStore(storeName)" type="button">查询</button>-->
-    <!--</span>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
     <div class="users-form">
         <!--<a class="btn btn-default setStore" ui-sref="addFlight">新建航班信息</a>-->
         <table class="table table-bordered">
@@ -31,8 +13,6 @@
                 <th>航空公司</th>
                 <th>飞机编号</th>
                 <th>机型</th>
-                <!--<th>准点率</th>-->
-                <!--<th>操作</th>-->
             </tr>
             </thead>
             <tbody>
@@ -75,30 +55,6 @@
                     <span ng-show="!flightItem.isSet">{{flightItem.type}}</span>
                     <input class="form-control" type="text" value="{{flightItem.type}}" ng-model="flightItem.type" ng-show="flightItem.isSet"/>
                 </td>
-                <!--<td style="max-width: 200px;">-->
-                <!--<span ng-show="!flightItem.isSet">{{flightItem.punctuality}}</span>-->
-                <!--<input class="form-control" type="text" value="{{flightItem.punctuality}}" ng-model="flightItem.punctuality" ng-show="flightItem.isSet"/>-->
-                <!--</td>-->
-                <!--<td>{{flightItem.fltno}}</td>-->
-                <!--<td>{{flightItem.date}}</td>-->
-                <!--<td>{{flightItem.takeoff}}</td>-->
-                <!--<td>{{flightItem.landing}}</td>-->
-                <!--<td style="max-width:200px;">{{flightItem.takeofftime}}</td>-->
-                <!--<td style="max-width:200px;">{{flightItem.landingtime}}</td>-->
-                <!--<td>{{flightItem.airline}}</td>-->
-                <!--<td>{{flightItem.planeid}}</td>-->
-                <!--<td>{{flightItem.type}}</td>-->
-                <!--<td>{{flightItem.punctuality}}</td>-->
-                <!--<td>{{storeItem.managerNamePhone}}</td>-->
-                <!--<td><button type="button" class="btn btn-default btn-xs" ng-click="vm.getActivity(userItem.id)" data-target="#activity" data-toggle="modal">详情</button></td>-->
-                <!--<td>-->
-                <!--&lt;!&ndash;<button class="btn btn-default btn-xs" ng-click="" ng-show="true">修改</button>-->
-                <!--<button class="btn btn-default btn-xs" ng-click="" ng-show="">保存</button>&ndash;&gt;-->
-                <!--<button class="btn btn-default btn-xs" ng-click="flightItem.isSet=true" ng-show="!flightItem.isSet">修改</button>-->
-                <!--<button class="btn btn-default btn-xs" ng-click="vm.setFlight(flightItem)" ng-show="flightItem.isSet">保存修改</button>-->
-                <!--<button class="btn btn-default btn-xs" ng-click="vm.deleteFlight(flightItem.id)" ng-show="true">删除</button>-->
-                <!--</td>-->
-                <!--<td>{{storeItem.remark}}</td>-->
             </tr>
             </tbody>
         </table>

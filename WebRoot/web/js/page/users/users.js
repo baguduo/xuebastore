@@ -80,7 +80,7 @@
 //
 //}]);
 
-//总店门户信息控制器
+//用户信息控制器
 app.controller('users',['$scope','$http','$state','globalService','mService',function($scope,$http,$state,globalService,mService){
     var vm=this;
     vm.data={};
