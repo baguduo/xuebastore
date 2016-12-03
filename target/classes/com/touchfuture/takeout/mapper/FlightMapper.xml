@@ -204,6 +204,7 @@
    FROM flight
    WHERE  TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',takeoffTime))>0
    ORDER BY date
+   LIMIT #{firstRow},#{maxRow}
   </select>
 
   <select id="countTakeoffTimeNear" parameterType="com.touchfuture.takeout.common.QueryBase" resultType="long">
@@ -218,6 +219,7 @@
     FROM flight
     WHERE  TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',landingTime))>0
     ORDER BY date
+    LIMIT #{firstRow},#{maxRow}
   </select>
 
   <select id="countLandingTimeNear" parameterType="com.touchfuture.takeout.common.QueryBase" resultType="long">
@@ -234,6 +236,7 @@
     (takeoff like concat('%',#{parameters.city},'%') or landing like concat('%',#{parameters.city},'%') )AND
     (TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',view_flight_plane.takeofftime))>0 or TIMESTAMPDIFF(SECOND ,now(),concat(date,' ',view_flight_plane.landingtime))>0)
     ORDER BY date
+    LIMIT #{firstRow},#{maxRow}
   </select>
 
   <select id="countTakeoffOrLandingTimeNear" parameterType="com.touchfuture.takeout.common.QueryBase" resultType="long">

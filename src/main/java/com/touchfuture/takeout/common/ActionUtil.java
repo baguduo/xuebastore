@@ -24,6 +24,22 @@ public class ActionUtil {
 		session.setAttribute(SESSION_USER, user);
 		session.setAttribute(SESSION_USER_LOGOUT, false);
 	}
+	public static void removeCurrentUser(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute(SESSION_USER);
+		session.setAttribute(SESSION_USER_LOGOUT, true);
+//		Cookie[] cookies = request.getCookies();
+//		for (Cookie cookie : cookies) {
+//			String name = cookie.getName();
+//			if (name.equals(UserAction.COOKIE_USER_SID)
+//					|| name.equals(UserAction.COOKIE_USER_PASSWORD)) {
+//				cookie.setValue(null);
+//				cookie.setMaxAge(0);// 立刻删除Cookie
+//				cookie.setPath("/");
+//				response.addCookie(cookie);
+//			}
+//		}
+	}
 	public static Admin getCurrentAdmin(HttpServletRequest request) {
 		Admin admin = (Admin) request.getSession().getAttribute(SESSION_USER);
 		return admin;

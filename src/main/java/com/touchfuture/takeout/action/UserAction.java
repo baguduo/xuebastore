@@ -5,10 +5,7 @@ package com.touchfuture.takeout.action;
  */
 
 import com.touchfuture.takeout.bean.User;
-import com.touchfuture.takeout.common.EncryptionUtil;
-import com.touchfuture.takeout.common.QueryBase;
-import com.touchfuture.takeout.common.Response;
-import com.touchfuture.takeout.common.Status;
+import com.touchfuture.takeout.common.*;
 import com.touchfuture.takeout.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +32,7 @@ public class UserAction {
         status = userService.login(user);
         if(status == Status.SUCCESS){
             message = "用户登陆成功";
+            ActionUtil.setCurrentUser(request,user);
             return new Response(status,message,user);
         }
         message = "用户登陆失败";
@@ -111,6 +109,14 @@ public class UserAction {
         userService.query(query);
        // String password = EncryptionUtil.encrypt(query.)
         return new Response(Status.SUCCESS,query.getResults(),query.getTotalRow());
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "api/user/loginOut",method = RequestMethod.GET)
+    public Object loginOut(HttpServletRequest request){
+        ActionUtil.removeCurrentUser(request);
+        String message = "用户退出成功";
+        return new Response(Status.SUCCESS,message);
     }
 
 

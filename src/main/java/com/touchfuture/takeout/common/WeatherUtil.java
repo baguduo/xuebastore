@@ -129,7 +129,10 @@ public class WeatherUtil {
             String dayData = OneDayWeatherinfo.getString("date");
             OneDayWeatherInf oneDayWeatherInf = new OneDayWeatherInf();
 
-            oneDayWeatherInf.setDate((today.getYear() + 1900) + "." + (today.getMonth() + 1) + "." + today.getDate());
+            if(today.getDate()>=10)
+              oneDayWeatherInf.setDate((today.getYear() + 1900) + "-" + (today.getMonth() + 1) + "-" + today.getDate());
+            else
+                oneDayWeatherInf.setDate((today.getYear() + 1900) + "-" + (today.getMonth() + 1) + "-0" + today.getDate());
             today.setDate(today.getDate() + 1);//增加一天
 
             oneDayWeatherInf.setLocation(location);

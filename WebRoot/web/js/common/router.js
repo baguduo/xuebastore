@@ -44,8 +44,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	//		}
 	//	})
 
-	//用户信息管理
-	.state('users', {
+	//管理员路由
+	    .state('users', {
 			url: '/users',
 			templateUrl: 'page/users/users.html'
 		})
@@ -61,6 +61,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		//	url: '/storeInfo/:id',
 		//	templateUrl: 'users/storeInfo.html'
 		//})
+
+		//用户路由
+		.state('lookFlights', {
+			url: '/flights',
+			templateUrl:'page/flights/flights.html'
+		})
+
+
+
+
 
 	//订单管理
 	//.state('order', {

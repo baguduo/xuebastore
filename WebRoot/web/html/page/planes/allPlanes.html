@@ -1,0 +1,63 @@
+<div ng-controller="allPlanes as vm" >
+
+    <div class="users-form">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>机型</th>
+                <th>制造商</th>
+                <th>首飞时间</th>
+                <th>类型</th>
+                <th>座位数</th>
+                <th>航程</th>
+                <th>翼展</th>
+                <th>速度</th>
+                <th>推荐指数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="planeItem in vm.data.planeList">
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.type}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.type}}" ng-model="planeItem.type" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.manufacturer}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.manufacturer}}" ng-model="planeItem.manufacturer" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.flyfirsttime}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.flyfirsttime}}" ng-model="planeItem.flyfirsttime" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.ptype}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.ptype}}" ng-model="planeItem.ptype" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.numofseat}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.numofseat}}" ng-model="planeItem.numofseat" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.voyage}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.voyage}}" ng-model="planeItem.voyage" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!flightItem.isSet">{{planeItem.winspan}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.winspan}}" ng-model="planeItem.winspan" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.speed}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.speed}}" ng-model="planeItem.speed" ng-show="planeItem.isSet"/>
+                </td>
+                <td style="max-width: 200px;">
+                    <span ng-show="!planeItem.isSet">{{planeItem.score}}</span>
+                    <input class="form-control" type="text" value="{{planeItem.score}}" ng-model="planeItem.score" ng-show="planeItem.isSet"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagination-container">
+            <div class="pagination"></div>
+        </div>
+    </div>
+</div>

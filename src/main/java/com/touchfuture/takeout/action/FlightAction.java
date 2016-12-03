@@ -2,10 +2,8 @@ package com.touchfuture.takeout.action;
 
 import com.touchfuture.takeout.bean.Flight;
 import com.touchfuture.takeout.bean.User;
-import com.touchfuture.takeout.common.AddressUtil;
-import com.touchfuture.takeout.common.QueryBase;
-import com.touchfuture.takeout.common.Response;
-import com.touchfuture.takeout.common.Status;
+import com.touchfuture.takeout.bean.viewBean.view_Flight_Plane;
+import com.touchfuture.takeout.common.*;
 import com.touchfuture.takeout.mapper.FlightMapper;
 import com.touchfuture.takeout.service.FlightService;
 import org.springframework.stereotype.Controller;
@@ -16,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by user on 2016/11/13.
@@ -157,7 +155,7 @@ public class FlightAction {
     }
 
     /**
-     * 查询据当前时间最接近的起飞航班信息
+     * 查询据当前时间最接近的降落航班信息
      * @param request 请求
      * @param query 查询参数对象
      * @return 0-成功 1-失败
@@ -182,8 +180,8 @@ public class FlightAction {
      * 根据用户ip所在地、天气和机型推荐航班
      */
     @ResponseBody
-    @RequestMapping(value = "api/user/flightRecommend",method = RequestMethod.GET)
-    public Object flightRecommend(HttpServletRequest request,QueryBase query){
+    @RequestMapping(value = "api/flight/flightRecommend",method = RequestMethod.GET)
+    public Object flightRecommend(HttpServletRequest request,QueryBase query)throws  Exception{
         String message;
         if(query == null){
             query = new QueryBase();
@@ -199,10 +197,10 @@ public class FlightAction {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        String cityName = address.substring(0,address.length()-1);
+        String cityName = address.substring(0, address.length() - 1);
         System.out.println(cityName);
         Map<String,Object> parameters = query.getParameters();
-        parameters.put("city",cityName);
+        parameters.put("city", cityName);
 
 
         flightService.queryTakeoffOrLandingTimeNear(query);
@@ -210,8 +208,73 @@ public class FlightAction {
         logger.warn(query.getResults());
 
 
+
+        WeatherUtil weatherUtil = new WeatherUtil();
+        Map<String,String> weather = weatherUtil.getWeather(cityName);
+
         List<? extends  Object> list = query.getResults();
-        //Flight flight = (Flight)list.get(0);
+        int length = list.size();
+        view_Flight_Plane[] flightInfo = new view_Flight_Plane[length];
+
+        for(int i = 0;i < length;++i){
+            flightInfo[i] = (view_Flight_Plane)list.get(i);
+        }
+        for(view_Flight_Plane sub:flightInfo){
+            System.out.println(sub.getDate());
+        }
+
+        for(view_Flight_Plane sub:flightInfo){
+            String date = sub.getDate().toString();
+           // date.replaceAll("－",".");
+           // System.out.println(date);
+          //  System.out.println(weather.keySet());
+            if(weather.containsKey(date)){
+                String onedayWeather = weather.get(date);
+
+                Pattern pattern1 = Pattern.compile("[晴]");
+                Pattern pattern2 = Pattern.compile("[云]");
+                Pattern pattern3 = Pattern.compile("[阴]");
+                Pattern pattern4 = Pattern.compile("[雨]");
+                Matcher matcher1 = pattern1.matcher(onedayWeather);
+                Matcher matcher2 = pattern2.matcher(onedayWeather);
+                Matcher matcher3 = pattern3.matcher(onedayWeather);
+                Matcher matcher4 = pattern4.matcher(onedayWeather);
+                if(matcher1.find()){
+                    System.out.println("晴 "+date+onedayWeather);
+                    Float score= sub.getScore() + 10;
+                    sub.setScore(score);
+                    sub.setWeather(onedayWeather);
+                }
+                else if(matcher2.find()){
+                    System.out.println("云 "+date+onedayWeather);
+                    Float score= sub.getScore() + 8;
+                    sub.setScore(score);
+                    sub.setWeather(onedayWeather);
+                }
+                else if(matcher3.find()){
+                    System.out.println("阴 " + date + onedayWeather);
+                    Float score= sub.getScore() + 7;
+                    sub.setScore(score);
+                    sub.setWeather(onedayWeather);
+                }
+                else if(matcher4.find()){
+                    System.out.println("雨 "+date+onedayWeather);
+                    Float score= sub.getScore() + 6;
+                    sub.setScore(score);
+                    sub.setWeather(onedayWeather);
+                }
+                else{
+                    System.out.println("其他 "+date+onedayWeather);
+                    Float score= sub.getScore() + 5;
+                    sub.setScore(score);
+                    sub.setWeather("暂无天气信息");
+                }
+            }
+            else {
+                Float score= sub.getScore() + 5;
+                sub.setScore(score);
+            }
+        }
 
         return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
     }

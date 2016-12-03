@@ -94,7 +94,7 @@ app.factory('mService',function($http){
 	}
 });
 app.factory('globalService', ['$location', '$http', function($location, $http) {
-	var apiPath = '../../api/';
+	var apiPath = '/api/';
 
 	function resCallback(res, callback, err) {
 		if (res.status === 0) {
@@ -318,6 +318,37 @@ app.controller('aside', ['$scope', 'globalService',
 	}
 ]);
 
+app.controller('asideUser', ['$scope', 'globalService',
+	function($scope, globalService) {
+		$scope.nav = {};
+		$scope.nav['total'] = [
+			{
+				state: 'flights',
+				content: '查看航班信息'
+			},
+			{
+				state: 'flightsRecommend',
+				content: '航班推荐'
+			},
+			{
+				state: 'allPlanes',
+				content: '查看机型信息'
+			},
+			//{
+			//	state: 'activity',
+			//	content: '飞友会长信息管理'
+			//}, {
+			//	state: 'accountManage',
+			//	content: '账目管理'
+			//}, {
+			//	state: 'rights',
+			//	content: '权限管理'
+			//}
+             ];
+		$scope.htmlName = globalService.getHtmlName();
+	}
+]);
+
 app.controller('header', ['$scope', 'globalService',
 	function($scope, globalService){
 		$scope.loginInfo = loginInfo;
@@ -328,6 +359,20 @@ app.controller('header', ['$scope', 'globalService',
 				alert(res.message);
 				sessionStorage.clear();
 				location.href = '/web/html/page/login.html';
+			});
+		};
+	}]);
+
+app.controller('userHeader', ['$scope', 'globalService',
+	function($scope, globalService){
+		$scope.loginInfo = loginInfo;
+
+		$scope.logout = function(evt) {
+			evt.preventDefault();
+			globalService.doGet('user/loginOut', {}, function(res) {
+				alert(res.message);
+				sessionStorage.clear();
+				location.href = '/web/html/page/userLogin.html';
 			});
 		};
 	}]);

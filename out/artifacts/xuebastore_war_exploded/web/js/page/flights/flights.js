@@ -2,13 +2,10 @@
  * Created by Administrator on 2016/11/13.
  */
 
-//总店门户信息控制器
+//管理员航班信息控制器
 app.controller('flights',['$scope','$http','$state','globalService','mService',function($scope,$http,$state,globalService,mService){
     var vm=this;
     vm.data={};
-    //vm.searchUser=searchUser;    //按店名搜索门店
-    //vm.userSelect=userSelect;    //获取下拉框下的所有门店
-    //vm.selectUser=selectUser;   //下拉选择门店
     vm.getFlight=getFlight;
     vm.setFlight=setFlight;
     vm.deleteFlight=deleteFlight;
@@ -25,7 +22,7 @@ app.controller('flights',['$scope','$http','$state','globalService','mService',f
     //    });
     //}
 
-    /*获取门店信息*/
+    /*获取航班信息*/
     function getFlight(data){
         globalService.doGet('flight/query',data,function(response){
             vm.data.flightList=response.body;
@@ -148,15 +145,6 @@ app.controller('addFlight',['$scope','$state','globalService','mService',functio
                 "landing":flightData.landing,
                 "punctuality":flightData.punctuality
 
-                //"name":storeData.storeName,
-                //"address": storeData.address,
-                //"phone": storeData.phone,
-                //"managerName":storeData.username ,
-                //"status":0 ,     //默认是正在营业
-                //"pictureUrl": storeData.imgUrl,
-                //"gpsLongitude": storeData.gpsLongitude, //经度
-                //"gpsLatitude": storeData.gpsLatitude,    //纬度
-                //managerNamePhone:storeData.managerNamePhone
             };
             globalService.doPost('flight/add',data,function(response){
                 alert('保存成功');
@@ -198,6 +186,106 @@ app.controller('addFlight',['$scope','$state','globalService','mService',functio
         }
     }
 }]);
+
+//用户航班信息控制器--最近起飞航班
+app.controller('takeoffFlights',['$scope','$http','$state','globalService','mService',function($scope,$http,$state,globalService,mService){
+    var vm=this;
+    vm.data={};
+    vm.getFlight=getFlight;
+    //vm.setFlight=setFlight;
+    //vm.deleteFlight=deleteFlight;
+    //vm.getActivity=getActivity;
+    vm.totalRow=0;
+
+    getFlight();
+
+
+    /*获取最近起飞航班信息*/
+    function getFlight(data){
+        globalService.doGet('flight/timeTakeoffNear',data,function(response){
+            vm.data.flightList=response.body;
+            vm.totalRow=response.totalRow;
+            /*分页*/
+            globalService.paginationInit($('.pagination'),vm.totalRow,function(currentPage){
+                var data={
+                    currentPage:currentPage
+                };
+                globalService.doGet('flight/timeTakeoffNear',data,function(response){
+                    vm.totalRow=response.totalRow;
+                    vm.data.flightList=response.body;
+                });
+            });
+        });
+    }
+
+}]);
+
+//用户航班信息控制器--最近降落航班
+app.controller('landingFlights',['$scope','$http','$state','globalService','mService',function($scope,$http,$state,globalService,mService){
+    var vm=this;
+    vm.data={};
+    vm.getFlight=getFlight;
+    //vm.setFlight=setFlight;
+    //vm.deleteFlight=deleteFlight;
+    //vm.getActivity=getActivity;
+    vm.totalRow=0;
+
+    getFlight();
+
+
+    /*获取最近降落航班信息*/
+    function getFlight(data){
+        globalService.doGet('flight/timeLandingNear',data,function(response){
+            vm.data.flightList=response.body;
+            vm.totalRow=response.totalRow;
+            /*分页*/
+            globalService.paginationInit($('.pagination'),vm.totalRow,function(currentPage){
+                var data={
+                    currentPage:currentPage
+                };
+                globalService.doGet('flight/timeLandingNear',data,function(response){
+                    vm.totalRow=response.totalRow;
+                    vm.data.flightList=response.body;
+                });
+            });
+        });
+    }
+
+}]);
+
+//用户航班信息控制器--航班推荐
+app.controller('flightsRecommend',['$scope','$http','$state','globalService','mService',function($scope,$http,$state,globalService,mService){
+    var vm=this;
+    vm.data={};
+    vm.getFlight=getFlight;
+    //vm.setFlight=setFlight;
+    //vm.deleteFlight=deleteFlight;
+    //vm.getActivity=getActivity;
+    vm.totalRow=0;
+
+    getFlight();
+
+
+    /*获取推荐航班信息*/
+    function getFlight(data){
+        globalService.doGet('flight/flightRecommend',data,function(response){
+            vm.data.flightList=response.body;
+            vm.totalRow=response.totalRow;
+            /*分页*/
+            globalService.paginationInit($('.pagination'),vm.totalRow,function(currentPage){
+                var data={
+                    currentPage:currentPage
+                };
+                globalService.doGet('flight/flightRecommend',data,function(response){
+                    vm.totalRow=response.totalRow;
+                    vm.data.flightList=response.body;
+                });
+            });
+        });
+    }
+
+}]);
+
 
 /*门店详情*/
 //app.controller('storeInfo',['$scope','$http','$state','$location','globalService','mService',function($scope,$http,$state,$location,globalService,mService){

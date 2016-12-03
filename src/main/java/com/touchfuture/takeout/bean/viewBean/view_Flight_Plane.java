@@ -22,7 +22,7 @@ public class view_Flight_Plane {
 
     private Date date;
 
-    private Float punctuality;
+    private float punctuality = 0;
 
     private Time takeofftime;
 
@@ -33,6 +33,18 @@ public class view_Flight_Plane {
     private String ptype;
 
     private Float score;
+
+    private String weather = "暂无天气信息";
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
+    }
+
+
 
     public Integer getId() {
         return id;

@@ -90,7 +90,7 @@ public class AdminAction {
     @RequestMapping(value = "api/admin/loginOut",method = RequestMethod.GET)
     public Object loginOut(HttpServletRequest request){
         ActionUtil.removeCurrentAdmin(request);
-        String message = "退出成功";
+        String message = "管理员退出成功";
         return new Response(Status.SUCCESS,message);
     }
 

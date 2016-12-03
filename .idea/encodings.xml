@@ -16,6 +16,7 @@
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/dishes" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/addFlight.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/flights.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/index1.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/login.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/order" charset="GBK" />
@@ -48,6 +49,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/FlightAction.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/PlaneAction.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/action/UserAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/bean/viewBean/view_Flight_Plane.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/common/WeatherUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/AdminServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/FlightServiceImpl.java" charset="UTF-8" />
