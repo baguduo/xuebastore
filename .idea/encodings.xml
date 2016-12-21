@@ -10,19 +10,11 @@
     <file url="file://$PROJECT_DIR$/WebRoot/web/css" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/common/header.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/index.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/account" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/accountManage" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/activity" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/dishes" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/addFlight.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/flights.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/flights/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/index1.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/login.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/order" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/orderInfo" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/rights" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/userinfo" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/users" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/page/users/userRegister.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/html/partIndex.html" charset="GBK" />
@@ -30,16 +22,8 @@
     <file url="file://$PROJECT_DIR$/WebRoot/web/img" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/js/common/global.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/js/common/router.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/account" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/accountManage" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/activity" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/dishes" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/flights/flights.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/login.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/order" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/orderInfo" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/rights" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/userInfo" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/users" charset="GBK" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/js/page/users/userRegister.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/WebRoot/web/script" charset="GBK" />
@@ -53,8 +37,10 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/common/WeatherUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/AdminServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/FlightServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/IPlocServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/PlaneServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/UserServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/touchfuture/takeout/serviceImpl/WeatherServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml" charset="GBK" />

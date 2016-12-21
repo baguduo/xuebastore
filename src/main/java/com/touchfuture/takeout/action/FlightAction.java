@@ -1,11 +1,16 @@
 package com.touchfuture.takeout.action;
 
 import com.touchfuture.takeout.bean.Flight;
+import com.touchfuture.takeout.bean.OneDayWeatherInf;
 import com.touchfuture.takeout.bean.User;
+import com.touchfuture.takeout.bean.WeatherInf;
 import com.touchfuture.takeout.bean.viewBean.view_Flight_Plane;
 import com.touchfuture.takeout.common.*;
 import com.touchfuture.takeout.mapper.FlightMapper;
-import com.touchfuture.takeout.service.FlightService;
+import com.touchfuture.takeout.service.*;
+import com.touchfuture.takeout.service.WeatherService;
+import com.touchfuture.takeout.serviceImpl.WeatherServiceImpl;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.commons.logging.Log;
@@ -28,7 +33,22 @@ public class FlightAction {
     Log logger = LogFactory.getLog(FlightAction.class);
 
     @Autowired
+    @Qualifier("weatherservice")
+    WeatherService weaService;
+
+    @Autowired
+    @Qualifier("iplocservice")
+    IPlocService iPlocService;
+
+    @Autowired
     FlightService flightService;
+
+
+
+
+   // WeatherServiceImpl weatherService = new WeatherServiceImpl();
+
+
 
     /**
      * 添加航班信息
@@ -135,7 +155,7 @@ public class FlightAction {
     }
 
     /**
-     * 查询据当前时间最接近的降落航班信息
+     * 查询据当前时间最接近的起飞航班信息
      * @param request 请求
      * @param query 查询参数对象
      * @return 0-成功 1-失败
@@ -182,6 +202,8 @@ public class FlightAction {
     @ResponseBody
     @RequestMapping(value = "api/flight/flightRecommend",method = RequestMethod.GET)
     public Object flightRecommend(HttpServletRequest request,QueryBase query)throws  Exception{
+
+
         String message;
         if(query == null){
             query = new QueryBase();
@@ -189,10 +211,12 @@ public class FlightAction {
 
         //根据IP获取用户所在城市
         AddressUtil addressUtils = new AddressUtil();
-        String ip ="125.70.11.136" ;
+       // String ip ="125.70.11.136" ;
+        String ip = "58.31.255.251";
         String address = "";
         try {
-            address = addressUtils.getAddresses("ip="+ip, "utf-8");
+            //address = addressUtils.getAddresses("ip="+ip, "utf-8");
+            address = iPlocService.getAddresses("ip="+ip, "utf-8");
         } catch (UnsupportedEncodingException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -209,8 +233,29 @@ public class FlightAction {
 
 
 
-        WeatherUtil weatherUtil = new WeatherUtil();
-        Map<String,String> weather = weatherUtil.getWeather(cityName);
+        WeatherInf weatherInf = new WeatherInf();
+        WeatherInf weatherInf1 = new WeatherInf();
+        weatherInf = weaService.getWeather(cityName);
+        if(weatherInf1.isUseCache()!=weatherInf.isUseCache())
+        {
+            System.out.println("使用cache啦！！！！！！！！！");
+        }
+        else
+        {
+            System.out.println("没用到cache....");
+        }
+
+        OneDayWeatherInf[] one = weatherInf.getWeatherInfs();
+        Map<String,String> weather = new HashMap<>();
+        for(OneDayWeatherInf oneday:one){
+            weather.put(oneday.getDate(), oneday.getWeather());
+            //System.out.println(oneday.toString());
+        }
+        Set<String> dates = weather.keySet();
+        for(String date:dates){
+            System.out.print(date);
+            System.out.println(weather.get(date));
+        }
 
         List<? extends  Object> list = query.getResults();
         int length = list.size();

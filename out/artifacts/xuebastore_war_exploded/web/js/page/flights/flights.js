@@ -110,7 +110,7 @@ app.controller('flights',['$scope','$http','$state','globalService','mService',f
 
 }]);
 
-/*新建门店*/
+/*新建航班信息*/
 app.controller('addFlight',['$scope','$state','globalService','mService',function($scope,$state,globalService,mService){
     var vm=this;
     vm.addFlight=addFlight;

@@ -8,6 +8,7 @@ import com.touchfuture.takeout.common.Status;
 import com.touchfuture.takeout.mapper.FlightMapper;
 import com.touchfuture.takeout.service.FlightService;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.commons.logging.LogFactory;
@@ -91,8 +92,10 @@ public class FlightServiceImpl implements FlightService{
      * @param id 航班信息id
      * @return 0-成功 7-不存在 1-失败
      */
+    @Cacheable(value = "FlightCache")
     @Override
     public Flight get(int id) {
+        logger.warn("到数据库中查找该id航班");
         if(!flightMapper.isExitById(id)){
             logger.warn("该id不存在");
             return null;
@@ -100,6 +103,7 @@ public class FlightServiceImpl implements FlightService{
         Flight flight_db = flightMapper.selectByPrimaryKey(id);
         return flight_db;
     }
+
 
     @Override
     public void query(QueryBase queryBase) {
@@ -112,14 +116,16 @@ public class FlightServiceImpl implements FlightService{
         queryBase.setTotalRow(flightMapper.countFlight(queryBase));
     }
 
+
     public void queryTakeoffTimeNear(QueryBase queryBase){
         if(logger.isDebugEnabled()){
-            logger.debug("根据参数"+queryBase.getParameters()+"查询用户");
+            logger.debug("根据参数"+queryBase.getParameters()+"查询最近起飞航班信息");
         }
         queryBase.getParameters().put("statusDelete", "-1");
 
         queryBase.setResults(flightMapper.queryTakeoffTimeNearest(queryBase));
         queryBase.setTotalRow(flightMapper.countTakeoffTimeNear(queryBase));
+
     }
 
     public void queryLandingTimeNear(QueryBase queryBase){

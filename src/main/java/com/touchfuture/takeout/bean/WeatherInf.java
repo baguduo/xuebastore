@@ -10,8 +10,16 @@ public class WeatherInf {
     private String coldAdvise;//感冒建议
     private String sportsAdvise;//运动建议
     private String ultravioletRaysAdvise;//紫外线建议
+    private boolean useCache = true;
 
 
+    public boolean isUseCache() {
+        return useCache;
+    }
+
+    public void setUseCache(boolean useCache) {
+        this.useCache = useCache;
+    }
     public WeatherInf(){
         dressAdvise = "";
         washCarAdvise = "";
