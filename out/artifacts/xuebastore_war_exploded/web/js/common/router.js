@@ -1,3 +1,6 @@
+/**
+ * 管理员界面菜单路由
+ */
 app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/users');
 	$urlRouterProvider.when('/dishes', 'dishes/index');

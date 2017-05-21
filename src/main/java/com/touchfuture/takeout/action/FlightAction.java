@@ -16,8 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -44,11 +48,9 @@ public class FlightAction {
     FlightService flightService;
 
 
-
+    NewRedisUtil newRedisUtil = new NewRedisUtil();
 
    // WeatherServiceImpl weatherService = new WeatherServiceImpl();
-
-
 
     /**
      * 添加航班信息
@@ -213,16 +215,28 @@ public class FlightAction {
         AddressUtil addressUtils = new AddressUtil();
        // String ip ="125.70.11.136" ;
         String ip = "58.31.255.251";
-        String address = "";
-        try {
-            //address = addressUtils.getAddresses("ip="+ip, "utf-8");
-            address = iPlocService.getAddresses("ip="+ip, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        String cityName = null;
+
+        //使用redis对ip所在城市信息进行缓存
+        if (newRedisUtil.exitKey(ip)) {
+            cityName = newRedisUtil.getValue(ip);
+            System.out.println("从redis获取到ip所在城市拉！");
+        } else {
+            String address = "";
+            try {
+                //address = addressUtils.getAddresses("ip="+ip, "utf-8");
+                address = iPlocService.getAddresses("ip="+ip, "utf-8");
+            } catch (UnsupportedEncodingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            cityName = address.substring(0, address.length() - 1);
+            System.out.println(cityName);
+            newRedisUtil.setValue(ip,cityName);
+            System.out.println("把城市信息存入redis中咯！！");
+
         }
-        String cityName = address.substring(0, address.length() - 1);
-        System.out.println(cityName);
+
         Map<String,Object> parameters = query.getParameters();
         parameters.put("city", cityName);
 
@@ -231,31 +245,38 @@ public class FlightAction {
         message = "查询成功";
         logger.warn(query.getResults());
 
+        //bind the city name with date
+        Calendar calendar = Calendar.getInstance();
+        StringBuilder sb = new StringBuilder();
+        sb.append(calendar.get(Calendar.YEAR));
+        sb.append(calendar.get(Calendar.MONTH));
+        sb.append(calendar.get(Calendar.DAY_OF_MONTH));
 
+        System.out.println("日期" + sb.toString());
 
         WeatherInf weatherInf = new WeatherInf();
         WeatherInf weatherInf1 = new WeatherInf();
-        weatherInf = weaService.getWeather(cityName);
-        if(weatherInf1.isUseCache()!=weatherInf.isUseCache())
-        {
-            System.out.println("使用cache啦！！！！！！！！！");
-        }
-        else
-        {
-            System.out.println("没用到cache....");
-        }
+        weatherInf = weaService.getWeather(cityName,sb.toString());
+//        if(weatherInf1.isUseCache()!=weatherInf.isUseCache())
+//        {
+//            System.out.println("使用cache啦！！！！！！！！！");
+//        }
+//        else
+//        {
+//            System.out.println("没用到cache....");
+//        }
 
         OneDayWeatherInf[] one = weatherInf.getWeatherInfs();
         Map<String,String> weather = new HashMap<>();
         for(OneDayWeatherInf oneday:one){
-            weather.put(oneday.getDate(), oneday.getWeather());
-            //System.out.println(oneday.toString());
+            weather.put(ActionUtil.getSameTypeDate(oneday.getDate()), oneday.getWeather());
+            //System.out.println(ActionUtil.getSameTypeDate(oneday.getDate()) + " " + oneday.getWeather());
         }
-        Set<String> dates = weather.keySet();
-        for(String date:dates){
-            System.out.print(date);
-            System.out.println(weather.get(date));
-        }
+//        Set<String> dates = weather.keySet();
+//        for(String date:dates){
+//            System.out.print(date);
+//            System.out.println(weather.get(date));
+//        }
 
         List<? extends  Object> list = query.getResults();
         int length = list.size();
@@ -264,15 +285,11 @@ public class FlightAction {
         for(int i = 0;i < length;++i){
             flightInfo[i] = (view_Flight_Plane)list.get(i);
         }
-        for(view_Flight_Plane sub:flightInfo){
-            System.out.println(sub.getDate());
-        }
+
 
         for(view_Flight_Plane sub:flightInfo){
             String date = sub.getDate().toString();
-           // date.replaceAll("－",".");
-           // System.out.println(date);
-          //  System.out.println(weather.keySet());
+
             if(weather.containsKey(date)){
                 String onedayWeather = weather.get(date);
 
@@ -323,4 +340,6 @@ public class FlightAction {
 
         return new Response(Status.SUCCESS,message,query.getResults(),query.getTotalRow());
     }
+
+
 }

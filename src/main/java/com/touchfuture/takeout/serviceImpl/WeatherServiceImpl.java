@@ -3,7 +3,9 @@ package com.touchfuture.takeout.serviceImpl;
 import com.touchfuture.takeout.bean.OneDayWeatherInf;
 import com.touchfuture.takeout.bean.Weather;
 import com.touchfuture.takeout.bean.WeatherInf;
+import com.touchfuture.takeout.common.NewRedisUtil;
 import com.touchfuture.takeout.common.QueryBase;
+import com.touchfuture.takeout.common.RedisUtil;
 import com.touchfuture.takeout.mapper.UserMapper;
 import com.touchfuture.takeout.service.WeatherService;
 import com.touchfuture.takeout.service.WeatherService;
@@ -14,9 +16,11 @@ import org.apache.commons.logging.LogFactory;
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.Jedis;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,6 +34,10 @@ import java.util.Date;
 @Component("weatherservice")
 public class WeatherServiceImpl implements WeatherService {
     Log logger = LogFactory.getLog(WeatherServiceImpl.class);
+
+
+    RedisUtil redisUtil = new RedisUtil();
+    NewRedisUtil newRedisUtil = new NewRedisUtil();
 
 
     private String location;
@@ -252,9 +260,24 @@ public class WeatherServiceImpl implements WeatherService {
 
 
     @Override
-    @Cacheable(value = "WeatherCache")
-    public WeatherInf getWeather(String originLocation) throws Exception{
+    //@Cacheable(value = "WeatherCache")
+    public WeatherInf getWeather(String originLocation,String nowDate) throws Exception{
 
+
+
+        WeatherInf weatherInf;
+        String weather = null;
+        String cityAndDate = nowDate + originLocation;
+
+
+
+        if (newRedisUtil.exitKey(cityAndDate)) {
+            weather = newRedisUtil.getValue(cityAndDate);
+            weatherInf = resolveWeatherInf(weather);
+            System.out.println("从redispool中获取天气啦  " + weather);
+            return weatherInf;
+
+        }
 
         logger.warn("从api获取天气信息");
 
@@ -262,15 +285,20 @@ public class WeatherServiceImpl implements WeatherService {
         locationTrans(originLocation);
         System.out.println(location);
         String link = "http://api.map.baidu.com/telematics/v3/weather?location="+location+"&output=json&ak=ryENpSxUWnSIi3LjTwG2Pfyp3HBnS1Gv";
-        String weather = getWeatherInfor(link);
+        weather = getWeatherInfor(link);
+        System.out.println("把天气存入redispool中咯  " + weather);
+
+        //put weather info into redis
+        newRedisUtil.setValue(cityAndDate,weather);
+
+
         System.out.print(weather);
-        WeatherInf weatherInf = new WeatherInf();
+
         weatherInf = resolveWeatherInf(weather);
         if(weatherInf.isUseCache())
             weatherInf.setUseCache(false);
         else
             weatherInf.setUseCache(true);
-        //System.out.println('\n');
         return weatherInf;
     }
 }

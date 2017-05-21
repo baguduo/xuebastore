@@ -2,6 +2,7 @@ package com.touchfuture.takeout.mapper;
 
 import com.touchfuture.takeout.bean.Admin;
 
+
 public interface AdminMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -1,3 +1,6 @@
+/**
+ * 用户界面菜单路由
+ */
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/flights');
     $urlRouterProvider.when('/flights', 'flights/allflights');
@@ -42,6 +45,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('allPlanes', {
             url: '/allPlanes',
             templateUrl: 'planes/allPlanes.html'
+
+        })
+        .state('upload', {
+            url: '/upload',
+            templateUrl: 'flights/uploadImg.html'
 
         })
 

@@ -6,7 +6,7 @@ import com.touchfuture.takeout.common.Response;
 import com.touchfuture.takeout.common.Status;
 import com.touchfuture.takeout.service.AdminService;
 import com.touchfuture.takeout.service.FlightService;
-import com.touchfuture.takeout.service.WeaService;
+import com.touchfuture.takeout.service.WeatherService;
 import com.touchfuture.takeout.serviceImpl.AdminServiceImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

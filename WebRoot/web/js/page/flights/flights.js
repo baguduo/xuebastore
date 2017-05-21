@@ -286,6 +286,54 @@ app.controller('flightsRecommend',['$scope','$http','$state','globalService','mS
 
 }]);
 
+/*上传飞机图片*/
+app.controller('uploadImgObject',['$scope','$state','globalService','mService',function($scope,$state,globalService,mService){
+    var vm=this;
+    vm.uploadImgObj=uploadImgObj;
+    //vm.openPage=openPage;
+    vm.imgData={};
+    $scope.uploadImg=uploadImg;
+
+
+    /*上传图片*/
+    function uploadImg(file){
+        mService.uploadImg(file,function(response){
+            vm.imgData.imgUrl='../..'+response.body;
+        });
+    }
+
+    function openPage(){
+        window.open('http://api.map.soso.com/doc_v2/tooles/picker.html');
+    }
+
+    /*上传图片对象*/
+    function uploadImgObj(imgData,boolean){
+        if(!boolean){
+            var data={
+                "name":imgData.name,
+                "description": imgData.description,
+                "imageUrl": imgData.imageUrl
+            };
+            globalService.doPost('planeImg/add',data,function(response){
+                alert('上传成功');
+                $state.go('upload');
+            });
+        }else{
+            var alertStr='';
+            if(!imgData.name){
+                alertStr='图片名称';
+            }
+            if(!imgData.description){
+                alertStr='图片描述';
+            }
+            if(!imgData.imageUrl){
+                alertStr='图片路径';
+            }
+            alert(alertStr+'出错！');
+        }
+    }
+}]);
+
 
 /*门店详情*/
 //app.controller('storeInfo',['$scope','$http','$state','$location','globalService','mService',function($scope,$http,$state,$location,globalService,mService){

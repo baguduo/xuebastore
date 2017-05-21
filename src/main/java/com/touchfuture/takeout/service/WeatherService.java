@@ -6,5 +6,5 @@ import com.touchfuture.takeout.bean.WeatherInf;
  * Created by user on 2016/12/17.
  */
 public interface WeatherService {
-     WeatherInf getWeather(String originLocation)throws Exception;
+     WeatherInf getWeather(String originLocation,String nowDate)throws Exception;
 }

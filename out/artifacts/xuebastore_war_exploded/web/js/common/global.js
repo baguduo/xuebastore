@@ -25,7 +25,7 @@ app.factory('mService',function($http){
 		if(/(gif|jpg|jpeg|png|GIF|JPG|PNG)/.test(ImgType)){
 			var Img=new FormData();
 			Img.append('file',file[0]);
-			$http.post('../../api/upload',Img,{
+			$http.post('../../../api/upload',Img,{
 				withCredentials: true,
 				headers: {'Content-Type': undefined },
 				transformRequest: angular.identity
@@ -334,10 +334,11 @@ app.controller('asideUser', ['$scope', 'globalService',
 				state: 'allPlanes',
 				content: '查看机型信息'
 			},
-			//{
-			//	state: 'activity',
-			//	content: '飞友会长信息管理'
-			//}, {
+			{
+				state: 'upload',
+				content: '上传图片'
+			}
+			//, {
 			//	state: 'accountManage',
 			//	content: '账目管理'
 			//}, {

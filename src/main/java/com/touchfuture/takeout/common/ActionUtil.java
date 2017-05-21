@@ -1,6 +1,7 @@
 package com.touchfuture.takeout.common;
 
 
+import com.sun.prism.shader.Solid_TextureRGB_AlphaTest_Loader;
 import com.touchfuture.takeout.bean.Admin;
 import com.touchfuture.takeout.bean.User;
 
@@ -100,6 +101,34 @@ public class ActionUtil {
 
 	public static void removeResetPasswordKey(HttpServletRequest request) {
 		request.getSession().removeAttribute(SESSION_USER_RESETPASSWORD_KEY);
+	}
+
+	public static String getSameTypeDate (String originDate) {
+		String[] dateElement = originDate.split("-");
+
+		if (dateElement.length != 3) {
+			return originDate;
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(dateElement[0]);
+		if (Integer.valueOf(dateElement[1]) < 10) {
+			sb.append("-");
+			sb.append(0);
+			sb.append(dateElement[1]);
+		} else  {
+			sb.append("-");
+			sb.append(dateElement[1]);
+		}
+
+		if (Integer.valueOf(dateElement[2]) < 10) {
+			sb.append("-");
+			sb.append(0);
+			sb.append(dateElement[2]);
+		} else {
+			sb.append("-");
+			sb.append(dateElement[2]);
+		}
+		return sb.toString();
 	}
 
 }

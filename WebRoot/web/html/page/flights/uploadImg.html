@@ -1,0 +1,47 @@
+<div  class="newStore"  ng-controller="uploadImgObject as vm">
+    <form class="form-horizontal" name="newStore" novalidate>
+        <h1>上传照片</h1>
+
+        <!--<div class="form-group">-->
+            <!--<label for="storeName" class="col-md-3 control-label">门店名称</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<input type="text" class="form-control" id="storeName" name="storeName" ng-model="vm.storeData.storeName" placeholder="不得为空" required>-->
+                <!--<span class="form-error" ng-show="newStore.storeName.$error.required&&newStore.storeName.$dirty">不得为空</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="phone" class="col-md-3 control-label">门店电话</label>-->
+            <!--<div class="col-md-9">-->
+                <!--<input type="text" class="form-control" id="phone" name="phone" ng-model="vm.storeData.phone" placeholder="不得为空" required>-->
+                <!--<span class="form-error" ng-show="newStore.phone.$error.required&&newStore.phone.$dirty">不得为空</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="form-group">
+            <label class="col-md-3 control-label">选择图片</label>
+            <div class="col-md-9 headImg">
+                <img src="../../../img/headImg.png"  ng-src="{{vm.imgData.imgUrl}}"/>
+                <input class="btn btn-sm" type="file" value="上传图片" onchange="angular.element(this).scope().uploadImg(this.files)"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-md-3 control-label">名称</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="name" name="name" ng-model="vm.imgData.name" style="width:450px" placeholder="不得为空" required>
+                <span class="form-error" ng-show="newImg.name.$error.required&&newImg.name.$dirty">不得为空</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description" class="col-md-3 control-label">简单介绍一下：</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="description" name="description" ng-model="vm.imgData.description" style="width:450px" placeholder="不得为空" required>
+                <span class="form-error" ng-show="newImg.description.$error.required&&newImg.description.$dirty">不得为空</span>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button ng-click="vm.uploadImgObj(vm.imgData,newImg.$invalid)" class="btn btn-default btn-danger"  type="button">上传</button>
+            <button ui-sref="stores" class="btn btn-default"  type="button">返回</button>
+        </div>
+
+    </form>
+</div>
